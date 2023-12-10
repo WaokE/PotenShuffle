@@ -1,4 +1,4 @@
-export default function TempCard() {
+export default function MainBanner() {
     return (
         <div
             className="flex flex-col gap-4 h-1/2-screen rounded-lg p-8"
