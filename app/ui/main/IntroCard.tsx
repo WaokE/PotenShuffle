@@ -8,13 +8,13 @@ export default function TempCard() {
                 backgroundPosition: "center",
             }}
         >
-            <p className="text-[90px] text-white">
+            <p className="text-[90px] text-white font-[700]">
                 FIND YOUR
                 <br />
                 TEAMMATE
             </p>
             <div className="flex justify-center items-center h-1/6">
-                <button className="w-1/5 h-full bg-white rounded-[20px] text-purple-700">
+                <button className="w-1/5 h-full bg-white rounded-[20px] text-purple-700 font-[700]">
                     자기 소개 작성하러 가기
                 </button>
             </div>
