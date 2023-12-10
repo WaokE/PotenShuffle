@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const sampleData = [
+const sampleData: [string, string, string, string[]][] = [
     [
         "서정민",
         "designer",
@@ -20,7 +20,7 @@ const sampleData = [
         ["협업", "기술 이해", "디자인 시스템"],
     ],
     [
-        "박종헌",
+        "서정민",
         "product manager",
         "B2B SaaS 프로덕트 디자이너로 3년 경력, 열린 마음과 협업 중심의 디자인으로 사이드 프로젝트 팀에 참여하고 싶습니다.",
         ["협업", "기술 이해", "디자인 시스템"],
@@ -44,7 +44,7 @@ const sampleData = [
         ["협업", "기술 이해", "디자인 시스템"],
     ],
     [
-        "박종헌",
+        "서정민",
         "product manager",
         "B2B SaaS 프로덕트 디자이너로 3년 경력, 열린 마음과 협업 중심의 디자인으로 사이드 프로젝트 팀에 참여하고 싶습니다.",
         ["협업", "기술 이해", "디자인 시스템"],

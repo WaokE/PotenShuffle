@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 type CardData = {
-    name: string | string[];
-    role: string | string[];
-    description: string | string[];
-    keywords: string | string[];
+    name: string;
+    role: string;
+    description: string;
+    keywords: string[];
 };
 
 const Card: React.FC<CardData> = ({ name, role, description, keywords }) => {
