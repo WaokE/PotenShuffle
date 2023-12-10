@@ -1,4 +1,4 @@
-import TempCard from "./TempCard";
+import TempCard from "./IntroCard";
 import CardWrapper from "./CardWrapper";
 
 export default function MainContent() {
