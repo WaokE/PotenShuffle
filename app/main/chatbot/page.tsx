@@ -1,7 +1,9 @@
+import ChatWrapper from "@/app/ui/chatbot/ChatWrapper";
+
 export default function ChatbotPage() {
     return (
-        <>
-            <h1>챗봇 페이지</h1>
-        </>
+        <div className="flex justify-center">
+            <ChatWrapper />
+        </div>
     );
 }
