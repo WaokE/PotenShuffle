@@ -14,6 +14,7 @@ const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
             className="flex flex-col p-4 gap-4 w-full h-1/2-screen border shadow-lg rounded-lg overflow-auto"
             onClick={() => {
                 setIsModalOpen(true);
+                setSelectedCardData(cardData);
             }}
         >
             <div className="flex justify-between items-center">

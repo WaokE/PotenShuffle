@@ -1,14 +1,24 @@
+import Card from "./Card";
+import TextCard from "./TextCard";
+
+import { useCardModalStore } from "@/store/cardModalStore";
+
 const CardModal = () => {
+    const { setIsModalOpen, selectedCardData } = useCardModalStore();
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="bg-white p-4 rounded shadow-md">
-                {/* Modal content */}
-                <h2 className="text-xl font-bold mb-4">Modal Title</h2>
-                <p className="text-gray-700">Modal content goes here...</p>
-                <div className="mt-4 flex justify-end">
-                    <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-                        Close
-                    </button>
+            <div className="relative bg-white p-4 rounded-[20px] shadow-md">
+                <button
+                    className="absolute top-4 right-4 text-lg text-gray-400"
+                    onClick={() => {
+                        setIsModalOpen(false);
+                    }}
+                >
+                    &#x2715;
+                </button>
+                <div className="flex p-10 gap-8">
+                    <Card cardData={selectedCardData} />
+                    <TextCard text={selectedCardData.preferredTeamMember} />
                 </div>
             </div>
         </div>
