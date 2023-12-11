@@ -1,14 +1,21 @@
 import Image from "next/image";
 
 import { userInfo } from "@/type/type";
+import { useCardModalStore } from "@/store/cardModalStore";
 
 type CardWrapperProps = {
     cardData: userInfo;
 };
 
 const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
+    const { setIsModalOpen, setSelectedCardData } = useCardModalStore();
     return (
-        <div className="flex flex-col p-4 gap-4 w-full h-1/2-screen border shadow-lg rounded-lg overflow-auto">
+        <div
+            className="flex flex-col p-4 gap-4 w-full h-1/2-screen border shadow-lg rounded-lg overflow-auto"
+            onClick={() => {
+                setIsModalOpen(true);
+            }}
+        >
             <div className="flex justify-between items-center">
                 <p className="text-2xl font-[700]">{cardData.user.name}</p>
                 <Image src="/icon.png" alt="icon" width="20" height="20" />
