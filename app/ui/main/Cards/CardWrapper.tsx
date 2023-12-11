@@ -12,7 +12,7 @@ export default function CardWrapper() {
     return (
         <div className="grid grid-cols-3 gap-4">
             {sampleUsersInfo.map((userInfo) => (
-                <Card cardData={userInfo} />
+                <Card cardData={userInfo} key={userInfo.user.id} />
             ))}
             {isModalOpen && <CardModal />}
         </div>
