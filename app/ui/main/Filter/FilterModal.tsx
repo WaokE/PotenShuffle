@@ -24,7 +24,12 @@ const FilterModal = () => {
                 <FilterModalCategoryContainer categotyName="career" />
                 <FilterModalCategoryContainer categotyName="teamBuildingStatus" />
                 <div className="flex justify-center w-auto">
-                    <button className="bg-[#7A34F2] rounded-[20px] text-white font-[700] p-4 w-1/5">
+                    <button
+                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] p-4 w-1/5"
+                        onClick={() => {
+                            toggleIsModalOpen();
+                        }}
+                    >
                         저장하기
                     </button>
                 </div>
