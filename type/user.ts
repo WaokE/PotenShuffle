@@ -1,3 +1,8 @@
+// TeamBuildingStatus에 대한 상수 배열과 타입 정의
+export const TEAMBUILDINGSTATUS_VALUES = ["WAITING", "IN_PROGRESS", "COMPLETED"];
+
+export type TeamBuildingStatusType = (typeof TEAMBUILDINGSTATUS_VALUES)[number];
+
 // EmploymentStatus에 대한 상수 배열과 타입 정의
 export const EMPLOYMENT_STATUS_VALUES = [
     "NONE",
@@ -26,6 +31,7 @@ export type userInfo = {
     user: {
         id: number;
         name: string;
+        teamBuildingStatus: TeamBuildingStatusType;
     };
     briefIntroduction: string;
     preferredTeamMember: string;
