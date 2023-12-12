@@ -25,9 +25,14 @@ const CardModal = () => {
                     &#x2715;
                 </button>
                 <div className="flex p-5 gap-8">
-                    <Card cardData={selectedCardData} />
-                    <TextCard text={selectedCardData.preferredTeamMember} />
+                    <div className="flex-1" style={{ flexBasis: "40%" }}>
+                        <Card cardData={selectedCardData} />
+                    </div>
+                    <div className="flex-1" style={{ flexBasis: "60%" }}>
+                        <TextCard text={selectedCardData.preferredTeamMember} />
+                    </div>
                 </div>
+
                 <div className="flex justify-center w-auto">
                     <button className="bg-[#7A34F2] rounded-[20px] text-white font-[700] p-4 w-1/5">
                         제안 보내기

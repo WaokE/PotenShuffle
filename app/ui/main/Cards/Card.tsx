@@ -36,7 +36,7 @@ const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
             {cardData.occupation === "PRODUCT_MANAGER" ? (
                 <Image src="/_Type=1.png" alt="icon" width="100" height="20" />
             ) : null}
-            <p>{cardData.briefIntroduction}</p>
+            <p className="text-sm">{cardData.briefIntroduction}</p>
             <div className="flex flex-wrap gap-2">
                 {cardData.keywords.map((keyword) => (
                     <Chip
