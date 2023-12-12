@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function MainBanner() {
     return (
         <div
@@ -14,9 +16,12 @@ export default function MainBanner() {
                 TEAMMATE
             </p>
             <div className="flex justify-center items-center h-1/6">
-                <button className="w-1/5 h-full bg-white rounded-[20px] text-purple-700 font-[700]">
-                    자기 소개 작성하러 가기
-                </button>
+                <Link
+                    href={"./main/chatbot"}
+                    className="flex justify-center items-center w-1/5 h-full bg-white rounded-[20px] text-purple-700 font-[700]"
+                >
+                    자기소개 작성하러 가기
+                </Link>
             </div>
         </div>
     );
