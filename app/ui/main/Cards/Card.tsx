@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { userInfo } from "@/type/user";
 import { useCardModalStore } from "@/store/cardModalStore";
+import TeamBuildingStatusChip from "./TeamBuildingStatusChip";
 
 type CardWrapperProps = {
     cardData: userInfo;
@@ -19,7 +20,7 @@ const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
         >
             <div className="flex justify-between items-center">
                 <p className="text-2xl font-[700]">{cardData.user.name}</p>
-                <Image src="/icon.png" alt="icon" width="20" height="20" />
+                <TeamBuildingStatusChip teamBuildingStatus={cardData.user.teamBuildingStatus} />
             </div>
             <p className="font-[700]">{cardData.occupation}</p>
             {cardData.occupation === "DESIGNER" ? (
