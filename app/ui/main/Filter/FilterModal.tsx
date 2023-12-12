@@ -5,9 +5,9 @@ import { useFilterStore } from "@/store/filterStore";
 import FilterModalCategoryContainer from "./FilterModalCategoryContainer";
 
 const FilterModal = () => {
-    const { setIsModalOpen } = useFilterStore();
+    const { toggleIsModalOpen } = useFilterStore();
     const closeModal = () => {
-        setIsModalOpen(false);
+        toggleIsModalOpen();
     };
 
     return (
