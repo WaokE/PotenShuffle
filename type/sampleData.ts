@@ -5,6 +5,7 @@ export const sampleUsersInfo: userInfo[] = [
         user: {
             id: 1,
             name: "서정민",
+            teamBuildingStatus: "WAITING",
         },
         briefIntroduction: "B2B SaaS 프로덕트 디자이너로 3년 경력",
         preferredTeamMember: "으쌰으쌰 함께, 재밌게 프로젝트 해나갈 팀 or 팀원을 찾고 있습니다.",
@@ -22,6 +23,7 @@ export const sampleUsersInfo: userInfo[] = [
         user: {
             id: 2,
             name: "이형준",
+            teamBuildingStatus: "IN_PROGRESS",
         },
         briefIntroduction: "FE 개발자 취업준비생",
         preferredTeamMember: "으쌰으쌰 함께, 재밌게 프로젝트 해나갈 팀 or 팀원을 찾고 있습니다.",
@@ -39,6 +41,7 @@ export const sampleUsersInfo: userInfo[] = [
         user: {
             id: 3,
             name: "신문기",
+            teamBuildingStatus: "COMPLETED",
         },
         briefIntroduction: "BE 개발자",
         preferredTeamMember: "으쌰으쌰 함께, 재밌게 프로젝트 해나갈 팀 or 팀원을 찾고 있습니다.",
@@ -56,6 +59,7 @@ export const sampleUsersInfo: userInfo[] = [
         user: {
             id: 4,
             name: "박종헌",
+            teamBuildingStatus: "WAITING",
         },
         briefIntroduction: "열정적인 기획자",
         preferredTeamMember: "으쌰으쌰 함께, 재밌게 프로젝트 해나갈 팀 or 팀원을 찾고 있습니다.",

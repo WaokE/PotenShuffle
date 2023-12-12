@@ -18,6 +18,7 @@ export const useCardModalStore = create<cardModalStore>((set) => ({
         user: {
             id: -1,
             name: "",
+            teamBuildingStatus: "WAITING",
         },
         briefIntroduction: "",
         preferredTeamMember: "",
