@@ -1,4 +1,4 @@
-import { userInfo } from "./type";
+import { userInfo } from "./user";
 
 export const sampleUsersInfo: userInfo[] = [
     {
