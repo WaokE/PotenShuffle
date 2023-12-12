@@ -23,7 +23,7 @@ const TeamBuildingStatusChip: React.FC<teamBuildingStatusChipProps> = ({ teamBui
 
     return (
         <div
-            className="flex justify-center items-center rounded-lg px-2 py-2 select-none cursor-pointer bg-[$]"
+            className="flex justify-center items-center rounded-lg px-2 py-2 select-none bg-[$]"
             style={{ backgroundColor: colors[1], color: colors[0] }}
         >
             <p className="text-sm font-[700]">{message}</p>

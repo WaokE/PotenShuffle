@@ -3,6 +3,7 @@ import Image from "next/image";
 import { userInfo } from "@/type/user";
 import { useCardModalStore } from "@/store/cardModalStore";
 import TeamBuildingStatusChip from "./TeamBuildingStatusChip";
+import Chip from "../Chip";
 
 type CardWrapperProps = {
     cardData: userInfo;
@@ -12,7 +13,7 @@ const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
     const { setIsModalOpen, setSelectedCardData } = useCardModalStore();
     return (
         <div
-            className="flex flex-col p-4 gap-4 w-full h-1/2-screen border shadow-lg rounded-lg overflow-auto"
+            className="flex flex-col p-4 gap-4 w-full h-1/2-screen border shadow-lg rounded-lg overflow-auto select-none"
             onClick={() => {
                 setIsModalOpen(true);
                 setSelectedCardData(cardData);
@@ -38,7 +39,13 @@ const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
             <p>{cardData.briefIntroduction}</p>
             <div className="flex flex-wrap gap-2">
                 {cardData.keywords.map((keyword) => (
-                    <div className="bg-gray-200 rounded-full p-2">{keyword}</div>
+                    <Chip
+                        key={keyword}
+                        label={keyword}
+                        bgColor="#FFFFFF"
+                        textColor="#121213"
+                        borderColor="#E0E0E0"
+                    />
                 ))}
             </div>
         </div>

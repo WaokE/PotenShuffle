@@ -1,6 +1,6 @@
 type ChipProps = {
     label: string;
-    onClick: () => void;
+    onClick?: () => void;
     bgColor: string;
     textColor: string;
     borderColor: string;
