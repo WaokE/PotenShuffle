@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { userInfo } from "@/type/type";
+import { userInfo } from "@/type/user";
 
 type cardModalStore = {
     isModalOpen: boolean;

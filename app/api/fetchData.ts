@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { fetchUsersFilter } from "@/type/type";
+import { fetchUsersFilter } from "@/type/fetchData";
 
 const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
 

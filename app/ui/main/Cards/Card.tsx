@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { userInfo } from "@/type/type";
+import { userInfo } from "@/type/user";
 import { useCardModalStore } from "@/store/cardModalStore";
 
 type CardWrapperProps = {
