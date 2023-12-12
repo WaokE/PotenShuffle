@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function MainBanner() {
     return (
         <div
-            className="flex flex-col gap-4 h-1/2-screen rounded-lg p-16"
+            className="flex flex-col gap-4 h-1/2-screen rounded-lg p-16 justify-between"
             style={{
                 backgroundImage: "url('/Gradient.png')",
                 backgroundSize: "cover",
