@@ -18,11 +18,16 @@ const FilterModal = () => {
         >
             <div
                 className="flex flex-col gap-4 bg-white w-auto rounded-lg shadow-lg p-8"
-                onClick={(e) => e.stopPropagation()} // 모달 내부 클릭 시 이벤트 버블링 방지
+                onClick={(e) => e.stopPropagation()}
             >
                 <FilterModalCategoryContainer categotyName="ocucupation" />
                 <FilterModalCategoryContainer categotyName="career" />
                 <FilterModalCategoryContainer categotyName="teamBuildingStatus" />
+                <div className="flex justify-center w-auto">
+                    <button className="bg-[#7A34F2] rounded-[20px] text-white font-[700] p-4 w-1/5">
+                        저장하기
+                    </button>
+                </div>
             </div>
         </div>
     );
