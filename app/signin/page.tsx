@@ -1,10 +1,10 @@
 "use client";
 
-import { useLoginStore } from "@/store/logInstore";
-import { signIn } from "../api/auth";
+import { useSignInStore } from "@/store/signInStore";
+import { signUp } from "../api/auth";
 
 export default function LoginPage() {
-    const { email, password, setEmail, setPassword } = useLoginStore();
+    const { email, password, name, setEmail, setPassword, setName } = useSignInStore();
 
     return (
         <div className="flex items-center justify-center h-screen w-screen">
@@ -24,20 +24,27 @@ export default function LoginPage() {
                         }}
                     />
                     <input
-                        className="border border-gray-300 rounded-b-lg p-2"
+                        className="border border-gray-300 p-2"
                         type="password"
                         placeholder="비밀번호"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-
+                    <input
+                        className="border border-gray-300 p-2 rounded-b-lg"
+                        type="text"
+                        placeholder="이름"
+                        onChange={(e) => {
+                            setName(e.target.value);
+                        }}
+                    />
                     <button
                         className="bg-[#7A34F2] rounded-[20px] text-white font-[700] mt-8 p-4"
                         onClick={(e) => {
                             e.preventDefault();
-                            console.log(signIn(email, password));
+                            console.log(signUp(email, password, name));
                         }}
                     >
-                        로그인
+                        회원가입
                     </button>
                 </form>
             </div>
