@@ -7,15 +7,15 @@ type FilterModalCategoryContainerProps = {
 };
 
 const ocucupation = [
-    "웹 개발자",
-    "IOS 개발자",
-    "Andriod 개발자",
-    "서버 개발자",
-    "디자이너",
-    "기획자",
+    "WEB_ENGINEER",
+    "IOS_ENGINEER",
+    "AOS_ENGINEER",
+    "SERVER_ENGINEER",
+    "DESIGNER",
+    "PRODUCT_MANAGER",
 ];
-const career = ["취준생", "구직자", "현업자"];
-const teamBuildingStatus = ["빌딩 전", "빌딩 중", "빌딩 완료"];
+const career = ["PREPARING_FOR_EMPLOYMENT", "LOOKING_FOR_JOB", "CURRENTLY_WORKING"];
+const teamBuildingStatus = ["WAITING", "IN_PROGRESS", "COMPLETED"];
 
 const FilterModalCategoryContainer: React.FC<FilterModalCategoryContainerProps> = ({
     categotyName,
