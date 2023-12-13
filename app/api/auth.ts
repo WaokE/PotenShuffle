@@ -19,4 +19,4 @@ export const signIn = (email: string, password: string) => {
     });
 };
 
-// modify .env
+// modify .env file
