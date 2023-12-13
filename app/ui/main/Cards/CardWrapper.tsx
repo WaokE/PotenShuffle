@@ -2,15 +2,18 @@
 
 import Card from "./Card";
 import CardModal from "./CardModal";
+import ReconfirmModal from "../ReconfirmModal";
 
 import { useCardModalStore } from "@/store/cardModalStore";
 import { useFilterStore } from "@/store/filterStore";
+import { useReconfirmModalStore } from "@/store/reconfirmModalStore";
 
 import { sampleUsersInfo } from "@/type/sampleData";
 
 export default function CardWrapper() {
     const { isModalOpen } = useCardModalStore();
     const { selectedFilter } = useFilterStore();
+    const { isReconfirmModalOpen } = useReconfirmModalStore();
 
     return (
         <div className="grid grid-cols-3 gap-4">
@@ -27,6 +30,7 @@ export default function CardWrapper() {
                     <Card cardData={userInfo} key={userInfo.user.id} />
                 ))}
             {isModalOpen && <CardModal />}
+            {isReconfirmModalOpen && <ReconfirmModal />}
         </div>
     );
 }
