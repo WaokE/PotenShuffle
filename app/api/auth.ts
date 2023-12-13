@@ -13,7 +13,7 @@ export const signUp = (email: string, name: string, password: string) => {
 
 export const signIn = (email: string, password: string) => {
     if (!serverUrl) throw new Error("NEXT_PUBLIC_SERVER_URL is not defined");
-    return axios.post(serverUrl + "sign-in", {
+    return axios.post(serverUrl + "/sign-in", {
         email,
         password,
     });

@@ -15,7 +15,7 @@ const CardModal = () => {
             }}
         >
             <div
-                className="relative bg-white p-4 rounded-[20px] shadow-md"
+                className="relative w-1/2 bg-white p-4 rounded-[20px] shadow-md"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button

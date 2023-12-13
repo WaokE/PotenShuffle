@@ -12,6 +12,18 @@ export const fetchSpecificUserInfo = (userId: string) => {
     return axios.get(serverUrl + "/users/" + userId + "/information");
 };
 
+export const fetchAllUserInfo = () => {
+    return axios.get(serverUrl + "/user-cards", {
+        params: {
+            employmentStatus: "--",
+            teamBuildingStatus: "--",
+            occupation: "--",
+            page: 0,
+            size: 10,
+        },
+    });
+};
+
 export const fetchFilteredUserInfo = (filter: fetchUsersFilter) => {
     return axios.get(serverUrl + "/users", {
         params: {
