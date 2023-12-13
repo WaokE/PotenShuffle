@@ -9,6 +9,7 @@ module.exports = {
                 "1/3-screen": "33.333333vh",
                 "1/4-screen": "25vh",
                 "1/10-screen": "10vh",
+                "7.5%-screen": "7.5vh",
                 "1/20-screen": "5vh",
             },
         },
