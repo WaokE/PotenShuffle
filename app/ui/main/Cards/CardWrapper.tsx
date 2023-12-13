@@ -11,6 +11,7 @@ import { useFilterStore } from "@/store/filterStore";
 import { useReconfirmModalStore } from "@/store/reconfirmModalStore";
 
 import { sampleUsersInfo } from "@/type/sampleData";
+import { userInfo } from "@/type/user";
 
 import { fetchAllUserInfo } from "@/app/api/fetchData";
 
@@ -18,7 +19,7 @@ export default function CardWrapper() {
     const { isModalOpen } = useCardModalStore();
     const { selectedFilter } = useFilterStore();
     const { isReconfirmModalOpen } = useReconfirmModalStore();
-    const [allUserInfo, setAllUserInfo] = useState([]);
+    const [allUserInfo, setAllUserInfo] = useState<userInfo[]>([]);
 
     useEffect(() => {
         async function fetchData() {
