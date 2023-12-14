@@ -38,7 +38,7 @@ export default function LoginPage() {
                         }}
                     />
                     <button
-                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] mt-8 p-4"
+                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] w-full mt-8 p-4"
                         onClick={(e) => {
                             e.preventDefault();
                             console.log(signUp(email, password, name));

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useLoginStore } from "@/store/loginStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
 import { signIn } from "../api/auth";
@@ -31,23 +33,24 @@ export default function LoginPage() {
                         placeholder="비밀번호"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-
-                    <button
-                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] mt-8 p-4"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            signIn(email, password).then((res) => {
-                                setUser({
-                                    name: res.data.name,
-                                    email: email,
-                                    token: res.data.token,
-                                    isLoggedIn: true,
+                    <Link href="/main">
+                        <button
+                            className="bg-[#7A34F2] rounded-[20px] text-white font-[700] w-full mt-8 p-4"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                signIn(email, password).then((res) => {
+                                    setUser({
+                                        name: res.data.name,
+                                        email: email,
+                                        token: res.data.token,
+                                        isLoggedIn: true,
+                                    });
                                 });
-                            });
-                        }}
-                    >
-                        로그인
-                    </button>
+                            }}
+                        >
+                            로그인
+                        </button>
+                    </Link>
                 </form>
             </div>
         </div>
