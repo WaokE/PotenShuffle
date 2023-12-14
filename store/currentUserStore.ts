@@ -8,13 +8,13 @@ type user = {
     isLoggedIn: boolean;
 };
 
-type userStore = {
+type currentUserStore = {
     user: user;
     setUser: (user: user) => void;
     logout: () => void;
 };
 
-export const useUserStore = create<userStore>()(
+export const useCurrentUserStore = create<currentUserStore>()(
     persist(
         (set) => ({
             user: {
