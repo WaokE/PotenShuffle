@@ -17,7 +17,7 @@ export default function MainContent() {
 
     return (
         <div className="flex flex-col gap-8 w-2/3 h-full">
-            {user ? user.isLoggedIn && <Mycard /> : <MainBanner />}
+            {user?.isLoggedIn ? <Mycard /> : <MainBanner />}
             <Filter />
             {isModalOpen && <FilterModal />}
             <CardWrapper />
