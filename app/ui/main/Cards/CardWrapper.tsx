@@ -10,7 +10,7 @@ import { useCardModalStore } from "@/store/cardModalStore";
 import { useFilterStore } from "@/store/filterStore";
 import { useReconfirmModalStore } from "@/store/reconfirmModalStore";
 
-import { sampleUsersInfo } from "@/type/sampleData";
+// import { sampleUsersInfo } from "@/type/sampleData";
 import { userInfo } from "@/type/user";
 
 import { fetchAllUserInfo } from "@/app/api/fetchData";
