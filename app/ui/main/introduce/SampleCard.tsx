@@ -8,6 +8,8 @@ const sampleCardData: userInfo = {
         teamBuildingStatus: "WAITING",
     },
     briefIntroduction: "안녕하세요. 저는 디자이너 홍길동입니다.",
+    introduction:
+        "안녕하세요. 저는 디자이너 홍길동입니다. 총 경력은 3년이며, 현재는 디자이너로 일하고 있습니다. 소통하는 것을 좋아하고, 새로운 것을 배우는 것을 좋아합니다.",
     preferredTeamMember: "활기차고 소통이 원활한 팀원을 선호합니다.",
     availableParticipationTime: "주 3회 이상",
     employmentStatus: "CURRENTLY_WORKING",
