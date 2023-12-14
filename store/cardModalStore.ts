@@ -21,6 +21,7 @@ export const useCardModalStore = create<cardModalStore>((set) => ({
             teamBuildingStatus: "WAITING",
         },
         briefIntroduction: "",
+        introduction: "",
         preferredTeamMember: "",
         availableParticipationTime: "",
         employmentStatus: "NONE",
