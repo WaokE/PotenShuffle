@@ -1,6 +1,6 @@
 "use client";
 
-import { useLoginStore } from "@/store/logInstore";
+import { useLoginStore } from "@/store/loginStore";
 import { signIn } from "../api/auth";
 
 export default function LoginPage() {

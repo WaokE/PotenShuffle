@@ -13,5 +13,3 @@ export const useLoginStore = create<loginStore>((set) => ({
     setEmail: (email) => set({ email }),
     setPassword: (password) => set({ password }),
 }));
-
-// adjust fileName
