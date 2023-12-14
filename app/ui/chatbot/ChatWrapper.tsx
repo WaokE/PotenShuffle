@@ -8,9 +8,13 @@ import ChatFooter from "./ChatFooter";
 
 import { initiateChat } from "@/app/api/chatbot";
 
+import useStore from "@/store/useStore";
+import { useCurrentUserStore } from "@/store/currentUserStore";
+
 export default function ChatWrapper() {
+    const user = useCurrentUserStore((state) => state.user);
     useEffect(() => {
-        console.log(initiateChat());
+        console.log(initiateChat(user.token));
     }, []);
 
     return (

@@ -33,7 +33,9 @@ const IntroduceForm = () => {
                     <select
                         id="occupation"
                         className="border rounded-[20px] p-4 w-32 h-14"
-                        onChange={(e) => setOccupation(e.target.value)}
+                        onChange={(e) =>
+                            setOccupation(e.target.value as (typeof OCCUPATION_VALUES)[number])
+                        }
                     >
                         {OCCUPATION_VALUES.map((occupation) => (
                             <option key={occupation} value={occupation}>
