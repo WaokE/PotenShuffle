@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { useLoginStore } from "@/store/loginStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
@@ -9,6 +9,25 @@ import { signIn } from "../api/auth";
 export default function LoginPage() {
     const { email, password, setEmail, setPassword } = useLoginStore();
     const { setUser } = useCurrentUserStore();
+    const router = useRouter();
+
+    const handleSignIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+
+        try {
+            const res = await signIn(email, password);
+            setUser({
+                name: res.data.name,
+                email: email,
+                token: res.data.token,
+                isLoggedIn: true,
+            });
+
+            router.push("/main");
+        } catch (error) {
+            console.error("로그인 오류:", error);
+        }
+    };
 
     return (
         <div className="flex items-center justify-center h-screen w-screen">
@@ -33,24 +52,12 @@ export default function LoginPage() {
                         placeholder="비밀번호"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Link href="/main">
-                        <button
-                            className="bg-[#7A34F2] rounded-[20px] text-white font-[700] w-full mt-8 p-4"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                signIn(email, password).then((res) => {
-                                    setUser({
-                                        name: res.data.name,
-                                        email: email,
-                                        token: res.data.token,
-                                        isLoggedIn: true,
-                                    });
-                                });
-                            }}
-                        >
-                            로그인
-                        </button>
-                    </Link>
+                    <button
+                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] w-full mt-8 p-4"
+                        onClick={handleSignIn}
+                    >
+                        로그인
+                    </button>
                 </form>
             </div>
         </div>

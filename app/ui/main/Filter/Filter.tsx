@@ -1,5 +1,7 @@
 import Chip from "../Chip";
 
+import { convertChipName } from "@/app/lib/convertChipName";
+
 import { useFilterStore } from "@/store/filterStore";
 
 export default function Filter() {
@@ -11,7 +13,7 @@ export default function Filter() {
                 return (
                     <Chip
                         key={index}
-                        label={item}
+                        label={convertChipName(item)}
                         onClick={() => {
                             toggleSelectedFilter(item);
                         }}

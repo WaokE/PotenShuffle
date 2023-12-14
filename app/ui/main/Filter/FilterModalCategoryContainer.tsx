@@ -1,5 +1,13 @@
 import Chip from "../Chip";
 
+import {
+    convertTeamBuildingStatus,
+    convertEmploymentStatus,
+    convertOccupation,
+    convertCategoryName,
+} from "@/app/lib/convertName";
+import { TeamBuildingStatusType, OccupationType, EmploymentStatusType } from "@/type/user";
+
 import { useFilterStore } from "@/store/filterStore";
 
 type FilterModalCategoryContainerProps = {
@@ -23,14 +31,14 @@ const FilterModalCategoryContainer: React.FC<FilterModalCategoryContainerProps> 
     const { selectedFilter, toggleSelectedFilter } = useFilterStore();
     return (
         <div className="flex flex-col gap-2">
-            <p className="font-[700]">{categotyName}</p>
+            <p className="font-[700]">{convertCategoryName(categotyName)}</p>
             <div className="flex gap-2">
-                {categotyName === "ocucupation" &&
+                {categotyName === "occupation" &&
                     ocucupation.map((item, index) => {
                         return (
                             <Chip
                                 key={index}
-                                label={item}
+                                label={convertOccupation(item as OccupationType)}
                                 onClick={() => {
                                     toggleSelectedFilter(item);
                                 }}
@@ -45,7 +53,7 @@ const FilterModalCategoryContainer: React.FC<FilterModalCategoryContainerProps> 
                         return (
                             <Chip
                                 key={index}
-                                label={item}
+                                label={convertEmploymentStatus(item as EmploymentStatusType)}
                                 onClick={() => {
                                     toggleSelectedFilter(item);
                                 }}
@@ -60,7 +68,7 @@ const FilterModalCategoryContainer: React.FC<FilterModalCategoryContainerProps> 
                         return (
                             <Chip
                                 key={index}
-                                label={item}
+                                label={convertTeamBuildingStatus(item as TeamBuildingStatusType)}
                                 onClick={() => {
                                     toggleSelectedFilter(item);
                                 }}

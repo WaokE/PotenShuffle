@@ -20,12 +20,12 @@ const FilterModal = () => {
                 className="flex flex-col gap-4 bg-white w-auto rounded-lg shadow-lg p-8"
                 onClick={(e) => e.stopPropagation()}
             >
-                <FilterModalCategoryContainer categotyName="ocucupation" />
+                <FilterModalCategoryContainer categotyName="occupation" />
                 <FilterModalCategoryContainer categotyName="career" />
                 <FilterModalCategoryContainer categotyName="teamBuildingStatus" />
                 <div className="flex justify-center w-auto">
                     <button
-                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] p-4 w-1/5"
+                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] py-4 px-8"
                         onClick={() => {
                             toggleIsModalOpen();
                         }}

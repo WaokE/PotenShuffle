@@ -3,6 +3,8 @@
 import Image from "next/image";
 
 import { userInfo } from "@/type/user";
+import { convertOccupation } from "@/app/lib/convertName";
+
 import { useCardModalStore } from "@/store/cardModalStore";
 import TeamBuildingStatusChip from "./TeamBuildingStatusChip";
 import Chip from "../Chip";
@@ -25,7 +27,7 @@ const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
                 <p className="text-2xl font-[700]">{cardData.user.name}</p>
                 <TeamBuildingStatusChip teamBuildingStatus={cardData.user.teamBuildingStatus} />
             </div>
-            <p className="font-[700]">{cardData.occupation}</p>
+            <p className="font-[700]">{convertOccupation(cardData.occupation)}</p>
             {cardData.occupation === "DESIGNER" ? (
                 <Image src="/_Type=3.png" alt="icon" width="100" height="20" />
             ) : null}
