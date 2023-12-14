@@ -26,6 +26,10 @@ export const OCCUPATION_VALUES = [
 
 export type OccupationType = (typeof OCCUPATION_VALUES)[number];
 
+export const PARTICIPATIONPURPOSE_VALUES = ["NONE", "FOR_FUN", "FOR_BUSINESS"];
+
+export type ParticipationPurposeType = (typeof PARTICIPATIONPURPOSE_VALUES)[number];
+
 // userInfo 타입 정의
 export type userInfo = {
     user: {
@@ -34,11 +38,12 @@ export type userInfo = {
         teamBuildingStatus: TeamBuildingStatusType;
     };
     briefIntroduction: string;
+    introduction: string;
     preferredTeamMember: string;
     availableParticipationTime: string;
     employmentStatus: EmploymentStatusType;
     occupation: OccupationType;
-    participationPurpose: string;
+    participationPurpose: ParticipationPurposeType;
     keywords: string[];
     strengths: string[];
     skills: string[];
