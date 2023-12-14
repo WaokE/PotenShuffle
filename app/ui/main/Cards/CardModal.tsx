@@ -1,5 +1,8 @@
+import Image from "next/image";
+
 import Card from "./Card";
 import TextCard from "./TextCard";
+import Chip from "../Chip";
 
 import { useCardModalStore } from "@/store/cardModalStore";
 import { useReconfirmModalStore } from "@/store/reconfirmModalStore";
@@ -35,16 +38,23 @@ const CardModal = () => {
                     </div>
                 </div>
 
-                <div className="flex justify-center w-auto">
-                    <button
-                        className="bg-[#7A34F2] rounded-[20px] text-white font-[700] p-4 w-1/5"
-                        onClick={() => {
-                            setIsModalOpen(false);
-                            toggleReconfirmModal();
-                        }}
-                    >
-                        제안 보내기
-                    </button>
+                <div className="flex justify-center gap-4 w-auto">
+                    <Chip
+                        label="슬랙 DM 보내기"
+                        bgColor="#FFFFFF"
+                        textColor="#7A34F2"
+                        borderColor="#E0E0E0"
+                    />
+
+                    <Chip
+                        label="제안 보내기"
+                        bgColor="#7A34F2"
+                        textColor="#FFFFFF"
+                        borderColor="#7A34F2"
+                        frontIcon={
+                            <Image src="/sendOfferIcon.svg" alt="icon" width="15" height="15" />
+                        }
+                    />
                 </div>
             </div>
         </div>
