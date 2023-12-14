@@ -8,7 +8,7 @@ export default function Filter() {
     const { isModalOpen, toggleIsModalOpen, selectedFilter, toggleSelectedFilter } =
         useFilterStore();
     return (
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
             {selectedFilter.map((item, index) => {
                 return (
                     <Chip
