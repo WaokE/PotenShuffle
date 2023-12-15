@@ -11,6 +11,7 @@ export const initiateChat = async (token: string) => {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
+                withCredentials: true,
             }
         );
         return response.data;
