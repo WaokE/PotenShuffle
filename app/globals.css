@@ -7,9 +7,19 @@
     font-weight: 45 920;
     font-style: normal;
     font-display: swap;
-    src: url("/fonts/woff2/PretendardVariable.woff2") format("woff2-variations");
+    src: url("/fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+
+@font-face {
+    font-family: "PyeongChangPeace";
+    src: url("/fonts/PyeongChangPeace-Bold.ttf");
 }
 
 body {
     font-family: "Pretendard Variable", sans-serif;
 }
+
+.loginBanner {
+    font-family: "PyeongChangPeace", sans-serif;
+}
+
