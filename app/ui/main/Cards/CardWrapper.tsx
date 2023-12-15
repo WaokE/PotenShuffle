@@ -1,18 +1,22 @@
 "use client";
+// Framwork APIs
+import { useEffect } from "react";
 
-import { useEffect, useState } from "react";
-
+// Components
 import Card from "./Card";
 import CardModal from "./CardModal";
 import ReconfirmModal from "../ReconfirmModal";
 
+// State stores
+import { useState } from "react";
 import { useCardModalStore } from "@/store/cardModalStore";
 import { useFilterStore } from "@/store/filterStore";
 import { useReconfirmModalStore } from "@/store/reconfirmModalStore";
 
-// import { sampleUsersInfo } from "@/type/sampleData";
+// Types
 import { userInfo } from "@/type/user";
 
+// APIs
 import { fetchAllUserInfo } from "@/app/api/fetchData";
 
 export default function CardWrapper() {

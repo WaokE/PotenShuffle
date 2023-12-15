@@ -1,18 +1,19 @@
 "use client";
 
-import useStore from "@/store/useStore";
-
+// Components
 import MainBanner from "./MainBanner";
 import Filter from "./Filter/Filter";
 import FilterModal from "./Filter/FilterModal";
 import CardWrapper from "./Cards/CardWrapper";
 import Mycard from "./Mycard";
 
+// State stores
+import useStore from "@/store/useStore";
 import { useFilterStore } from "@/store/filterStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
 
 export default function MainContent() {
-    const { selectedFilter, isModalOpen } = useFilterStore();
+    const { isModalOpen } = useFilterStore();
     const user = useStore(useCurrentUserStore, (state) => state.user);
 
     return (

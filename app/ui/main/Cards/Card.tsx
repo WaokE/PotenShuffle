@@ -1,13 +1,19 @@
 "use client";
-
+// Framework APIs
 import Image from "next/image";
 
+// Components
+import Chip from "../Chip";
+import TeamBuildingStatusChip from "./TeamBuildingStatusChip";
+
+// Types
 import { userInfo } from "@/type/user";
+
+// Functions
 import { convertOccupation } from "@/app/lib/convertName";
 
+// State stores
 import { useCardModalStore } from "@/store/cardModalStore";
-import TeamBuildingStatusChip from "./TeamBuildingStatusChip";
-import Chip from "../Chip";
 
 type CardWrapperProps = {
     cardData: userInfo;
