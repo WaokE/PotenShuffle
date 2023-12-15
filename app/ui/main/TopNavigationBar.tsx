@@ -19,13 +19,6 @@ export default function TopNavigationBar() {
                 <Link href="/main">
                     <span className="font-bold text-xl">포텐셔플</span>
                 </Link>
-                <span
-                    className="font-bold text-sm underline text-purple-500"
-                    style={{ textDecorationThickness: "2px", textUnderlineOffset: "10px" }}
-                >
-                    자기 소개 보기
-                </span>
-                <span className="font-bold text-sm">빌딩 중인 그룹 보기</span>
             </div>
             {currentUserStore && validLogin(currentUserStore?.user.tokenExpire!) ? (
                 <Link href="/main" className="mr-[17%]">

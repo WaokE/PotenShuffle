@@ -6,6 +6,7 @@ import Filter from "./Filter/Filter";
 import FilterModal from "./Filter/FilterModal";
 import CardWrapper from "./Cards/CardWrapper";
 import CurrentUserDashboard from "./CurrentUserDashboard";
+import MidNavigationBar from "./MidNavigationBar";
 
 // State stores
 import useStore from "@/store/useStore";
@@ -22,6 +23,7 @@ export default function MainContent() {
     return (
         <div className="flex flex-col gap-8 w-2/3 h-full">
             {validLogin(user?.tokenExpire!) ? <CurrentUserDashboard /> : <MainBanner />}
+            <MidNavigationBar />
             <Filter />
             {isModalOpen && <FilterModal />}
             <CardWrapper />
