@@ -35,7 +35,7 @@ export default function LoginPage() {
     return (
         <div className="flex items-center justify-center h-screen w-screen">
             <div className="flex flex-col gap-8 items-center w-1/6 h-1/2">
-                <p className="font-[700] text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[#A26CFF] to-[#5800F0] loginBanner">
+                <p className="font-[700] text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[#A26CFF] to-[#5800F0] loginBanner select-none">
                     포텐셔플
                 </p>
                 <form className="flex flex-col w-full">
