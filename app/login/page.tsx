@@ -1,9 +1,14 @@
 "use client";
 
+// Framework APIs
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
+// State stores
 import { useLoginStore } from "@/store/loginStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
+
+// APIs
 import { signIn } from "../api/auth";
 
 export default function LoginPage() {
@@ -60,6 +65,9 @@ export default function LoginPage() {
                         로그인
                     </button>
                 </form>
+                <Link href="/signup">
+                    <p className="text-[#BDBDBD]">회원가입</p>
+                </Link>
             </div>
         </div>
     );

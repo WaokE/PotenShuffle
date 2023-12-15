@@ -14,7 +14,7 @@ const IntroduceForm = () => {
     return (
         <div className="flex flex-col gap-8 pl-8 pr-8">
             <div className="flex gap-4 justify-between">
-                <div className="flex items-center gap-4 ">
+                <div className="flex items-center gap-4">
                     <label htmlFor="name" className="font-[700] w-20">
                         이름
                     </label>
