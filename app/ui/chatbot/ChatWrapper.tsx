@@ -8,7 +8,7 @@ import ChatFooter from "./ChatFooter";
 
 import { initiateChat } from "@/app/api/chatbot";
 
-import useStore from "@/store/useStore";
+// import useStore from "@/store/useStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
 
 export default function ChatWrapper() {
