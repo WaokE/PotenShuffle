@@ -16,11 +16,14 @@ export default function LoginPage() {
 
         try {
             const res = await signIn(email, password);
+            const currentTime: Date = new Date();
+            const tokenExpireDate: Date = new Date(currentTime.getTime() + 60 * 60 * 1000);
+
             setUser({
                 name: res.data.name,
                 email: email,
                 token: res.data.token,
-                isLoggedIn: true,
+                tokenExpire: tokenExpireDate,
             });
 
             router.push("/main");

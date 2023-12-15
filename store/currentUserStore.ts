@@ -5,7 +5,7 @@ type user = {
     name: string;
     email: string;
     token: string;
-    isLoggedIn: boolean;
+    tokenExpire: Date;
 };
 
 type currentUserStore = {
@@ -21,7 +21,7 @@ export const useCurrentUserStore = create<currentUserStore>()(
                 name: "",
                 email: "",
                 token: "",
-                isLoggedIn: false,
+                tokenExpire: new Date(0),
             },
             setUser: (user) => {
                 set({ user });
@@ -32,7 +32,7 @@ export const useCurrentUserStore = create<currentUserStore>()(
                         name: "",
                         email: "",
                         token: "",
-                        isLoggedIn: false,
+                        tokenExpire: new Date(0),
                     },
                 });
             },

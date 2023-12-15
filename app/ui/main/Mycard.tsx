@@ -10,7 +10,7 @@ import { useCurrentUserStore } from "@/store/currentUserStore";
 
 import axios from "axios";
 
-const Mycard = () => {
+const MyCard = () => {
     const [userData, setUserData] = useState<userInfo>();
     const { user } = useCurrentUserStore();
 
@@ -26,4 +26,4 @@ const Mycard = () => {
     return <>{userData ? <Card cardData={userData} /> : <p>no Card</p>}</>;
 };
 
-export default Mycard;
+export default MyCard;

@@ -1,9 +1,14 @@
 "use client";
 
+// Framework APIs
 import Link from "next/link";
 
+// State stores
 import useStore from "@/store/useStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
+
+// Functions
+import { validLogin } from "@/app/lib/vaildLogin";
 
 export default function TopNavigationBar() {
     const currentUserStore = useStore(useCurrentUserStore, (store) => store);
@@ -22,7 +27,7 @@ export default function TopNavigationBar() {
                 </span>
                 <span className="font-bold text-sm">빌딩 중인 그룹 보기</span>
             </div>
-            {currentUserStore?.user.isLoggedIn ? (
+            {currentUserStore && validLogin(currentUserStore?.user.tokenExpire!) ? (
                 <Link href="/main" className="mr-[17%]">
                     <span
                         className="font-bold text-sm"
