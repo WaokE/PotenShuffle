@@ -1,10 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { useSignInStore } from "@/store/signInStore";
 import { signUp } from "../api/auth";
 
 export default function LoginPage() {
     const { email, password, name, setEmail, setPassword, setName } = useSignInStore();
+    const router = useRouter();
 
     return (
         <div className="flex items-center justify-center h-screen w-screen">
@@ -35,11 +38,21 @@ export default function LoginPage() {
                             setName(e.target.value);
                         }}
                     />
+
                     <button
                         className="bg-[#7A34F2] rounded-[20px] text-white font-[700] w-full mt-8 p-4"
                         onClick={(e) => {
                             e.preventDefault();
-                            console.log(signUp(email, password, name));
+                            signUp(email, password, name)
+                                .then((res) => {
+                                    console.log(res);
+                                    if (res.status === 201) {
+                                        router.push("/main");
+                                    }
+                                })
+                                .catch((err) => {
+                                    throw err;
+                                });
                         }}
                     >
                         회원가입
