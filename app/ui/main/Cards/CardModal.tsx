@@ -34,7 +34,7 @@ const CardModal = () => {
                         <Card cardData={selectedCardData} />
                     </div>
                     <div className="flex-1" style={{ flexBasis: "60%" }}>
-                        <TextCard text={selectedCardData.preferredTeamMember} />
+                        <TextCard text={selectedCardData.introduction} />
                     </div>
                 </div>
 

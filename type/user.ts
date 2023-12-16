@@ -39,14 +39,9 @@ export type userInfo = {
     };
     briefIntroduction: string;
     introduction: string;
-    preferredTeamMember: string;
-    availableParticipationTime: string;
     employmentStatus: EmploymentStatusType;
     occupation: OccupationType;
-    participationPurpose: ParticipationPurposeType;
     keywords: string[];
-    strengths: string[];
-    skills: string[];
     createdAt: string;
     updatedAt: string;
 };
