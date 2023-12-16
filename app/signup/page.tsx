@@ -43,7 +43,7 @@ export default function LoginPage() {
                         className="bg-[#7A34F2] rounded-[20px] text-white font-[700] w-full mt-8 p-4"
                         onClick={(e) => {
                             e.preventDefault();
-                            signUp(email, password, name)
+                            signUp(email, name, password)
                                 .then((res) => {
                                     console.log(res);
                                     if (res.status === 201) {
