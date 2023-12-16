@@ -4,7 +4,7 @@ import SendingOffer from "@/app/ui/SendingOffer";
 
 export default function sendingOfferPage() {
     return (
-        <div className="w-1/3">
+        <div>
             <SendingOffer />
         </div>
     );
