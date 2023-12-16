@@ -29,7 +29,7 @@ const DashboardMessageButtons = () => {
     return (
         <div className="flex flex-col">
             <Link href="/main/introduce">
-                <button className="bg-[#7A34F2] rounded-[20px] text-white text-xs font-[700] px-8 py-4">
+                <button className="bg-[#7A34F2] rounded-[20px] text-white text-xs font-[700] w-full px-8 py-4">
                     카드 수정하기
                 </button>
             </Link>
