@@ -22,8 +22,12 @@ const CurrentUserDashboardWrapper = () => {
     useEffect(() => {
         if (!currentUserStore) return;
         const fetchData = async () => {
-            const myCardData = (await fetchCurrentUserInfo(currentUserStore.user!.token)).data;
-            currentUserStore.setCardData(myCardData);
+            try {
+                const myCardData = (await fetchCurrentUserInfo(currentUserStore.user!.token)).data;
+                currentUserStore.setCardData(myCardData);
+            } catch (error) {
+                console.error("Cant fetch current user data");
+            }
         };
 
         fetchData();
