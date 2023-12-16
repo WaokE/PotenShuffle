@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+
 // State stores
 import { useChatbotStore } from "@/store/chatbotStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
@@ -8,6 +10,7 @@ import { endConversation } from "@/app/api/chatbot";
 export default function ChatHeader() {
     const { setChatResult, chatId } = useChatbotStore();
     const token = useCurrentUserStore((state) => state.user.token);
+    const router = useRouter();
 
     return (
         <div className="flex rounded-[20px] shadow-lg p-6 justify-between">
@@ -22,8 +25,9 @@ export default function ChatHeader() {
                 onClick={() => {
                     try {
                         endConversation(chatId, token).then((res) => {
-                            console.log(res);
                             setChatResult(res);
+                            console.log(res);
+                            router.push("/main/introduce");
                         });
                     } catch (e) {
                         console.log(e);

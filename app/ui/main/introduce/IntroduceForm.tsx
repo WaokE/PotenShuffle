@@ -1,16 +1,40 @@
 "use client";
 
+import { useEffect } from "react";
+
+// Components
 import Chip from "../Chip";
 
+// State stores
 import { useIntroduceFormStore } from "@/store/introduceFormStore";
+import { useChatbotStore } from "@/store/chatbotStore";
 
+// Types
 import { OCCUPATION_VALUES } from "@/type/user";
 
-const sampleKeywords = ["협업", "기술 이해", "디자인 시스템"];
-
 const IntroduceForm = () => {
-    const { setName, setOccupation, toggleKeyword, setBriefIntroduction, setIntroduction } =
-        useIntroduceFormStore();
+    const {
+        setName,
+        setOccupation,
+        toggleKeyword,
+        setBriefIntroduction,
+        setIntroduction,
+        setKeywords,
+        name,
+        introduction,
+        briefIntroduction,
+        keywords,
+    } = useIntroduceFormStore();
+    const { chatResult } = useChatbotStore();
+
+    useEffect(() => {
+        if (chatResult) {
+            setBriefIntroduction(chatResult.briefIntroduction);
+            setIntroduction(chatResult.introduction);
+            setKeywords(chatResult.keywords);
+        }
+    }, []);
+
     return (
         <div className="flex flex-col gap-8 pl-8 pr-8">
             <div className="flex gap-4 justify-between">
@@ -21,6 +45,7 @@ const IntroduceForm = () => {
                     <input
                         type="text"
                         id="name"
+                        value={name}
                         className="border rounded-[20px] p-4 w-32 h-14"
                         onChange={(e) => setName(e.target.value)}
                     />
@@ -47,13 +72,13 @@ const IntroduceForm = () => {
             </div>
             <div className="flex gap-4">
                 <p className="font-[700] w-20">나의 키워드</p>
-                {sampleKeywords.map((keyword) => (
+                {keywords.map((keyword) => (
                     <Chip
                         key={keyword}
                         label={keyword}
-                        bgColor="#FFFFFF"
-                        textColor="#121213"
-                        borderColor="#E0E0E0"
+                        bgColor={keywords.includes(keyword) ? "#F6EFFF" : "#FFFFFF"}
+                        textColor={keywords.includes(keyword) ? "#7A34F2" : "#121213"}
+                        borderColor={keywords.includes(keyword) ? "#7A34F2" : "#E0E0E0"}
                         onClick={() => toggleKeyword(keyword)}
                     />
                 ))}
@@ -64,6 +89,7 @@ const IntroduceForm = () => {
                 </label>
                 <textarea
                     id="briefIntroduction"
+                    value={briefIntroduction}
                     className="border rounded-[20px] p-4 flex-grow h-24 resize-none"
                     onChange={(e) => setBriefIntroduction(e.target.value)}
                 />
@@ -74,6 +100,7 @@ const IntroduceForm = () => {
                 </label>
                 <textarea
                     id="introduction"
+                    value={introduction}
                     className="border rounded-[20px] p-4 flex-grow h-72 resize-none"
                     onChange={(e) => setIntroduction(e.target.value)}
                 />
