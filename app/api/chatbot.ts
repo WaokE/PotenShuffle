@@ -47,3 +47,22 @@ export const sendMessage = async (conversationId: number, message: string, token
         console.error("Error sending message:", error);
     }
 };
+
+export const endConversation = async (conversationId: number, token: string) => {
+    try {
+        const response = await axios.post(
+            `${serverUrl}/introduction-guide-conversations/${conversationId}/complete`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                withCredentials: true,
+            }
+        );
+
+        return response.data;
+    } catch (error) {
+        console.error("Error ending conversation:", error);
+    }
+};
