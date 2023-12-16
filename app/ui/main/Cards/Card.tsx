@@ -23,7 +23,8 @@ const Card: React.FC<CardWrapperProps> = ({ cardData }) => {
     const { setIsModalOpen, setSelectedCardData } = useCardModalStore();
     return (
         <div
-            className="flex flex-col p-4 gap-4 w-full h-1/2-screen border shadow-lg rounded-lg overflow-auto select-none hover:zoom-105 hover:border-2 hover:border-gray-500"
+            className="flex flex-col p-4 gap-4 w-full h-1/2-screen border rounded-lg overflow-auto select-none
+            hover:bg-var(--White, #FFF) hover:shadow-lg transition-all"
             onClick={() => {
                 setIsModalOpen(true);
                 setSelectedCardData(cardData);
