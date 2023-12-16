@@ -14,6 +14,16 @@ type ChatbotStore = {
     chatMessages: ChatData[];
     addChatMessage: (message: ChatData) => void;
     setChatMessages: (messages: ChatData[]) => void;
+    chatResult: {
+        introduction: string;
+        briefIntroduction: string;
+        keywords: string[];
+    };
+    setChatResult: (result: {
+        introduction: string;
+        briefIntroduction: string;
+        keywords: string[];
+    }) => void;
 };
 
 export const useChatbotStore = create<ChatbotStore>((set) => ({
@@ -25,4 +35,10 @@ export const useChatbotStore = create<ChatbotStore>((set) => ({
     addChatMessage: (message) =>
         set((state) => ({ chatMessages: [...state.chatMessages, message] })),
     setChatMessages: (messages) => set({ chatMessages: messages }),
+    chatResult: {
+        introduction: "",
+        briefIntroduction: "",
+        keywords: [],
+    },
+    setChatResult: (result) => set({ chatResult: result }),
 }));
