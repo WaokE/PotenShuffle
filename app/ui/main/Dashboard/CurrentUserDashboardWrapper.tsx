@@ -27,7 +27,7 @@ const CurrentUserDashboardWrapper = () => {
         };
 
         fetchData();
-    }, [currentUserStore]);
+    }, [currentUserStore?.user.token, currentUserStore?.user.tokenExpire]);
     return (
         <>
             {currentUserStore ? (
