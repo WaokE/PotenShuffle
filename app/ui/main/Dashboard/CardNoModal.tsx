@@ -25,16 +25,16 @@ const CardNoModal: React.FC<CardWrapperProps> = ({ cardData }) => {
             </div>
             <p className="font-[700]">{convertOccupation(cardData.occupation)}</p>
             {cardData.occupation === "DESIGNER" ? (
-                <Image src="/_Type=3.png" alt="icon" width="100" height="20" />
+                <Image src="/_Type=3.svg" alt="icon" width="100" height="20" />
             ) : null}
             {cardData.occupation === "WEB_ENGINEER" ? (
-                <Image src="/_Type=2.png" alt="icon" width="100" height="20" />
+                <Image src="/_Type=2.svg" alt="icon" width="100" height="20" />
             ) : null}
             {cardData.occupation === "SERVER_ENGINEER" ? (
-                <Image src="/_Type=4.png" alt="icon" width="100" height="20" />
+                <Image src="/_Type=4.svg" alt="icon" width="100" height="20" />
             ) : null}
             {cardData.occupation === "PRODUCT_MANAGER" ? (
-                <Image src="/_Type=1.png" alt="icon" width="100" height="20" />
+                <Image src="/_Type=1.svg" alt="icon" width="100" height="20" />
             ) : null}
             <p className="text-sm">{cardData.briefIntroduction}</p>
             <div className="flex flex-wrap gap-2">
