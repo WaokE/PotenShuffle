@@ -8,38 +8,40 @@ export default function Filter() {
     const { isModalOpen, toggleIsModalOpen, selectedFilter, toggleSelectedFilter } =
         useFilterStore();
     return (
-        <div className="flex flex-wrap gap-2">
-            {selectedFilter.map((item, index) => {
-                return (
-                    <Chip
-                        key={index}
-                        label={convertChipName(item)}
-                        onClick={() => {
-                            toggleSelectedFilter(item);
-                        }}
-                        bgColor={"#F6EFFF"}
-                        textColor={"#7A34F2"}
-                        borderColor={"#7A34F2"}
-                        backIcon={
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="20"
-                                height="20"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    d="M4.64145 4.21185C4.96688 3.88641 5.49452 3.88641 5.81996 4.21185L10.2307 8.6226L14.6414 4.21185C14.9669 3.88641 15.4945 3.88641 15.82 4.21185C16.1454 4.53729 16.1454 5.06493 15.82 5.39036L11.4092 9.80111L15.82 14.2119C16.1454 14.5373 16.1454 15.0649 15.82 15.3904C15.4945 15.7158 14.9669 15.7158 14.6414 15.3904L10.2307 10.9796L5.81996 15.3904C5.49452 15.7158 4.96688 15.7158 4.64145 15.3904C4.31601 15.0649 4.31601 14.5373 4.64145 14.2119L9.05219 9.80111L4.64145 5.39036C4.31601 5.06493 4.31601 4.53729 4.64145 4.21185Z"
-                                    fill="#7A34F2"
-                                />
-                            </svg>
-                        }
-                    />
-                );
-            })}
-            <div className="ml-auto">
+        <div className="flex">
+            <div className="flex flex-wrap gap-2">
+                {selectedFilter.map((item, index) => {
+                    return (
+                        <Chip
+                            key={index}
+                            label={convertChipName(item)}
+                            onClick={() => {
+                                toggleSelectedFilter(item);
+                            }}
+                            bgColor={"#F6EFFF"}
+                            textColor={"#7A34F2"}
+                            borderColor={"#7A34F2"}
+                            backIcon={
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20"
+                                    height="20"
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M4.64145 4.21185C4.96688 3.88641 5.49452 3.88641 5.81996 4.21185L10.2307 8.6226L14.6414 4.21185C14.9669 3.88641 15.4945 3.88641 15.82 4.21185C16.1454 4.53729 16.1454 5.06493 15.82 5.39036L11.4092 9.80111L15.82 14.2119C16.1454 14.5373 16.1454 15.0649 15.82 15.3904C15.4945 15.7158 14.9669 15.7158 14.6414 15.3904L10.2307 10.9796L5.81996 15.3904C5.49452 15.7158 4.96688 15.7158 4.64145 15.3904C4.31601 15.0649 4.31601 14.5373 4.64145 14.2119L9.05219 9.80111L4.64145 5.39036C4.31601 5.06493 4.31601 4.53729 4.64145 4.21185Z"
+                                        fill="#7A34F2"
+                                    />
+                                </svg>
+                            }
+                        />
+                    );
+                })}
+            </div>
+            <div className="ml-auto  w-24 flex-shrink-0">
                 <Chip
                     label="필터"
                     onClick={() => {
