@@ -1,12 +1,12 @@
 // Components
-import MyCard from "../Mycard";
+import MyCardNoModal from "./MyCardNoModal";
 import DashboardMessage from "./DashboardMessage";
 
 const MyIntroduce = () => {
     return (
         <>
             <div className="w-1/2">
-                <MyCard />
+                <MyCardNoModal />
             </div>
             <div className="w-1/2">
                 <DashboardMessage />
