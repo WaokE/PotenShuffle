@@ -2,8 +2,8 @@
 import { useEffect } from "react";
 
 // Componenets
-import MyCard from "./Mycard";
-import MainBanner from "./MainBanner";
+import MainBanner from "../MainBanner";
+import CurrentUserDashboard from "./CurrentUserDashboard";
 
 // State stores
 import useStore from "@/store/useStore";
@@ -15,7 +15,7 @@ import { fetchCurrentUserInfo } from "@/app/api/fetchData";
 // Functions
 import { validLogin } from "@/app/lib/vaildLogin";
 
-const CurrentUserDashboard = () => {
+const CurrentUserDashboardWrapper = () => {
     // const store = useCurrentUserStore((state) => state);
     const store = useStore(useCurrentUserStore, (state) => state);
 
@@ -35,7 +35,7 @@ const CurrentUserDashboard = () => {
                 store.user?.cardData?.introduction === "" ? (
                     <MainBanner />
                 ) : (
-                    <MyCard />
+                    <CurrentUserDashboard />
                 )
             ) : null}
         </>
