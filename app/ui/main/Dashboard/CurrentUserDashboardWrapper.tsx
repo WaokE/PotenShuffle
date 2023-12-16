@@ -17,22 +17,22 @@ import { validLogin } from "@/app/lib/vaildLogin";
 
 const CurrentUserDashboardWrapper = () => {
     // const store = useCurrentUserStore((state) => state);
-    const store = useStore(useCurrentUserStore, (state) => state);
+    const currentUserStore = useStore(useCurrentUserStore, (state) => state);
 
     useEffect(() => {
-        if (!store) return;
+        if (!currentUserStore) return;
         const fetchData = async () => {
-            const myCardData = (await fetchCurrentUserInfo(store.user!.token)).data;
-            store.setCardData(myCardData);
+            const myCardData = (await fetchCurrentUserInfo(currentUserStore.user!.token)).data;
+            currentUserStore.setCardData(myCardData);
         };
 
         fetchData();
-    }, [store]);
+    }, [currentUserStore]);
     return (
         <>
-            {store ? (
-                !validLogin(store.user?.tokenExpire!) ||
-                store.user?.cardData?.introduction === "" ? (
+            {currentUserStore ? (
+                !validLogin(currentUserStore.user?.tokenExpire!) ||
+                currentUserStore.user?.cardData?.introduction === "" ? (
                     <MainBanner />
                 ) : (
                     <CurrentUserDashboard />
@@ -42,4 +42,4 @@ const CurrentUserDashboardWrapper = () => {
     );
 };
 
-export default CurrentUserDashboard;
+export default CurrentUserDashboardWrapper;

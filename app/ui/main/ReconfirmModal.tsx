@@ -1,23 +1,40 @@
 "use client";
 
 // Framework APIs
+import { useEffect } from "react";
 import Image from "next/image";
 
 // Components
 import Chip from "@/app/ui/main/Chip";
 
 // State stores
+import useStore from "@/store/useStore";
+import { useCurrentUserStore } from "@/store/currentUserStore";
 import { useReconfirmModalStore } from "@/store/reconfirmModalStore";
 import { useCardModalStore } from "@/store/cardModalStore";
 
+// APIs
+import { fetchCurrentUserInfo } from "@/app/api/fetchData";
+
 // Functions
-import { showToast } from "@/app/lib/toast";
+import { showSuccessToast, showErrorToast } from "@/app/lib/toast";
+import { validLogin } from "@/app/lib/vaildLogin";
 
 const ReconfirmModal = () => {
     const { toggleReconfirmModal } = useReconfirmModalStore();
     const { selectedCardData } = useCardModalStore();
+    const currentUserStore = useStore(useCurrentUserStore, (state) => state);
 
-    const icon = <Image src="/sendOfferIcon.svg" width={20} height={20} alt="sendoffericon" />;
+    useEffect(() => {
+        if (!currentUserStore) return;
+        const fetchData = async () => {
+            const myCardData = (await fetchCurrentUserInfo(currentUserStore.user!.token)).data;
+            currentUserStore.setCardData(myCardData);
+        };
+
+        fetchData();
+    }, [currentUserStore]);
+
     return (
         <div
             id="modalBackdrop"
@@ -55,7 +72,20 @@ const ReconfirmModal = () => {
                         }
                         onClick={() => {
                             toggleReconfirmModal();
-                            showToast(`${selectedCardData.user.name}님에게 제안을 보냈습니다.`);
+                            if (currentUserStore !== undefined) {
+                                if (
+                                    !validLogin(currentUserStore.user?.tokenExpire!) ||
+                                    currentUserStore.user?.cardData?.introduction === ""
+                                ) {
+                                    showErrorToast(
+                                        "팀빌딩 제안을 보내려면 로그인 후 자기소개를 작성해주세요."
+                                    );
+                                } else {
+                                    showSuccessToast(
+                                        `${selectedCardData.user.name}님에게 제안을 보냈습니다.`
+                                    );
+                                }
+                            }
                         }}
                     />
                 </div>
