@@ -16,23 +16,28 @@ import { fetchCurrentUserInfo } from "@/app/api/fetchData";
 import { validLogin } from "@/app/lib/vaildLogin";
 
 const CurrentUserDashboard = () => {
-    const store = useCurrentUserStore((state) => state);
+    // const store = useCurrentUserStore((state) => state);
+    const store = useStore(useCurrentUserStore, (state) => state);
 
     useEffect(() => {
+        if (!store) return;
         const fetchData = async () => {
             const myCardData = (await fetchCurrentUserInfo(store.user!.token)).data;
             store.setCardData(myCardData);
         };
 
         fetchData();
-    }, []);
+    }, [store]);
     return (
         <>
-            {!validLogin(store.user?.tokenExpire!) || store.user?.cardData === undefined ? (
-                <MainBanner />
-            ) : (
-                <MyCard />
-            )}
+            {store ? (
+                !validLogin(store.user?.tokenExpire!) ||
+                store.user?.cardData?.introduction === "" ? (
+                    <MainBanner />
+                ) : (
+                    <MyCard />
+                )
+            ) : null}
         </>
     );
 };

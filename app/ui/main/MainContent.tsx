@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-
 // Components
 import Filter from "./Filter/Filter";
 import FilterModal from "./Filter/FilterModal";
@@ -17,11 +15,6 @@ export default function MainContent() {
 
     return (
         <div className="flex flex-col gap-8 w-2/3 h-full">
-            {/* {validLogin(user?.tokenExpire!) && !user?.cardData ? (
-                <CurrentUserDashboard />
-            ) : (
-                <MainBanner />
-            )} */}
             <CurrentUserDashboard />
             <MidNavigationBar />
             <Filter />
