@@ -1,7 +1,7 @@
 const ReceivedOffers = () => {
     return (
-        <div className="h-1/2-screen">
-            <h1>ReceivedOffer</h1>
+        <div className="flex justify-center h-1/2-screen w-full bg-[url('/noResult.svg')] bg-center bg-cover">
+            <p className="select-none text-gray-400">받은 제안이 없습니다.</p>
         </div>
     );
 };
