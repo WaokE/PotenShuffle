@@ -1,14 +1,17 @@
+// Framwork APIs
 import { useEffect, useState } from "react";
 
+// APIs
 import { fetchCurrentUserInfo } from "@/app/api/fetchData";
 
+// Types
 import { userInfo } from "@/type/user";
 
+// Components
 import Card from "./Cards/Card";
 
+// State stores
 import { useCurrentUserStore } from "@/store/currentUserStore";
-
-import axios from "axios";
 
 const MyCard = () => {
     const [userData, setUserData] = useState<userInfo>();
