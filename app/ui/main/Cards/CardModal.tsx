@@ -44,6 +44,9 @@ const CardModal = () => {
                         bgColor="#FFFFFF"
                         textColor="#7A34F2"
                         borderColor="#E0E0E0"
+                        onClick={() => {
+                            setIsModalOpen(false);
+                        }}
                     />
 
                     <Chip
