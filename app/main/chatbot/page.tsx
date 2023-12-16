@@ -25,7 +25,7 @@ export default function ChatbotPage() {
     }, [expireDate]);
 
     // 렌더링 중지 (undefined일 때 | 로그인 유효기간이 지났을 때)
-    if (!validLogin(expireDate!)) return null;
+    if (!validLogin(expireDate!) || expireDate === undefined) return null;
 
     return (
         <div className="flex justify-center">

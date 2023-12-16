@@ -10,15 +10,26 @@ import { initiateChat } from "@/app/api/chatbot";
 
 // import useStore from "@/store/useStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
+import { useChatbotStore } from "@/store/chatbotStore";
 
 export default function ChatWrapper() {
     const user = useCurrentUserStore((state) => state.user);
+    const { setChatId, addChatMessage, setChatMessages } = useChatbotStore();
+
     useEffect(() => {
-        console.log(initiateChat(user.token));
+        initiateChat(user.token).then((res) => {
+            setChatId(res.id);
+            console.log(res.messages[0]);
+            addChatMessage({ role: "bot", content: res.messages[0].content });
+        });
+
+        return () => {
+            setChatMessages([]);
+        };
     }, []);
 
     return (
-        <div className="flex flex-col w-2/3 h-full">
+        <div className="flex flex-col w-[66.666667vw] h-full">
             <ChatHeader />
             <ChatBody />
             <ChatFooter />

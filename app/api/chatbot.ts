@@ -28,9 +28,22 @@ export const getChatMessages = (conversationId: number) => {
     });
 };
 
-export const sendMessage = (conversationId: number, message: string) => {
-    axios.post(serverUrl + "/introduction-guide-conversations/", {
-        conversationId,
-        message,
-    });
+export const sendMessage = async (conversationId: number, message: string, token: string) => {
+    try {
+        const response = await axios.post(
+            `${serverUrl}/introduction-guide-conversations/${conversationId}/messages`,
+            { message },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+                withCredentials: true,
+            }
+        );
+
+        return response.data;
+    } catch (error) {
+        console.error("Error sending message:", error);
+    }
 };
