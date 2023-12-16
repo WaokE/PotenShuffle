@@ -1,6 +1,6 @@
 // Components
 import MyCardNoModal from "./MyCardNoModal";
-import DashboardMessage from "./DashboardMessage";
+import DashboardFooter from "./DashboardFooter";
 
 const MyIntroduce = () => {
     return (
@@ -9,7 +9,7 @@ const MyIntroduce = () => {
                 <MyCardNoModal />
             </div>
             <div className="w-1/2">
-                <DashboardMessage />
+                <DashboardFooter />
             </div>
         </>
     );
