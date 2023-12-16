@@ -1,11 +1,17 @@
 "use client";
 
+// Framework APIs
 import Image from "next/image";
 
+// Components
 import Chip from "@/app/ui/main/Chip";
 
+// State stores
 import { useReconfirmModalStore } from "@/store/reconfirmModalStore";
 import { useCardModalStore } from "@/store/cardModalStore";
+
+// Functions
+import { showToast } from "@/app/lib/toast";
 
 const ReconfirmModal = () => {
     const { toggleReconfirmModal } = useReconfirmModalStore();
@@ -49,6 +55,7 @@ const ReconfirmModal = () => {
                         }
                         onClick={() => {
                             toggleReconfirmModal();
+                            showToast(`${selectedCardData.user.name}님에게 제안을 보냈습니다.`);
                         }}
                     />
                 </div>

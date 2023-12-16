@@ -1,3 +1,5 @@
+
+
 const SentOffers = () => {
     return (
         <div className="h-1/2-screen">
