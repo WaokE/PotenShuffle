@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { useSignInStore } from "@/store/signInStore";
 import { signUp } from "../api/auth";
@@ -12,9 +13,11 @@ export default function LoginPage() {
     return (
         <div className="flex items-center justify-center h-screen w-screen">
             <div className="flex flex-col gap-8 items-center w-1/6 h-1/2">
-                <p className="font-[700] text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[#A26CFF] to-[#5800F0] loginBanner select-none">
-                    포텐셔플
-                </p>
+                <Link href="/main">
+                    <p className="font-[700] text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[#A26CFF] to-[#5800F0] loginBanner select-none">
+                        포텐셔플
+                    </p>
+                </Link>
                 <form className="flex flex-col w-full">
                     <input
                         className="border border-gray-300 rounded-t-lg p-2"

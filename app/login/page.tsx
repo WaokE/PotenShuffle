@@ -29,6 +29,7 @@ export default function LoginPage() {
                 email: email,
                 token: res.data.token,
                 tokenExpire: tokenExpireDate,
+                cardData: undefined,
             });
 
             router.push("/main");
@@ -40,9 +41,12 @@ export default function LoginPage() {
     return (
         <div className="flex items-center justify-center h-screen w-screen">
             <div className="flex flex-col gap-8 items-center w-1/6 h-1/2">
-                <p className="font-[700] text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[#A26CFF] to-[#5800F0] loginBanner select-none">
-                    포텐셔플
-                </p>
+                <Link href="/main">
+                    <p className="font-[700] text-6xl bg-clip-text text-transparent bg-gradient-to-b from-[#A26CFF] to-[#5800F0] loginBanner select-none">
+                        포텐셔플
+                    </p>
+                </Link>
+
                 <form className="flex flex-col w-full">
                     <input
                         className="border border-gray-300 rounded-t-lg p-2"
