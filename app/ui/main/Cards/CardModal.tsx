@@ -54,6 +54,10 @@ const CardModal = () => {
                         frontIcon={
                             <Image src="/sendOfferIcon.svg" alt="icon" width="15" height="15" />
                         }
+                        onClick={() => {
+                            setIsModalOpen(false);
+                            toggleReconfirmModal();
+                        }}
                     />
                 </div>
             </div>
