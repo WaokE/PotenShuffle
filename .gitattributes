@@ -1,0 +1,2 @@
+/Frame.svg filter=lfs diff=lfs merge=lfs -text
+public/Frame.svg filter=lfs diff=lfs merge=lfs -text

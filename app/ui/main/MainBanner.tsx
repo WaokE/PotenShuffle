@@ -1,25 +1,19 @@
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function MainBanner() {
+    const router = useRouter();
+
     return (
         <div
-            className="flex flex-col gap-4 h-1/2-screen rounded-lg p-16 justify-between"
+            className="flex flex-col gap-4 h-[600px] rounded-lg p-16 justify-between"
             style={{
-                backgroundImage: "url('/Gradient.png')",
+                backgroundImage: "url('/Frame.svg')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
-        >
-            <p className="text-[70px] text-white font-[200]">포텐셔플</p>
-            <p className="text-[30px] text-white font-[200]">Shuffle your potential</p>
-            <div className="flex justify-center items-center h-1/6">
-                <Link
-                    href={"./main/chatbot"}
-                    className="flex justify-center items-center w-1/5 h-full bg-white rounded-[20px] text-purple-700 font-[700]"
-                >
-                    자기소개 작성하러 가기
-                </Link>
-            </div>
-        </div>
+            onClick={() => {
+                router.push("/main/chatbot");
+            }}
+        ></div>
     );
 }
