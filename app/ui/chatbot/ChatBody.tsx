@@ -3,6 +3,7 @@ import { useChatbotStore } from "@/store/chatbotStore";
 export default function ChatBody() {
     const chatbotMessage = useChatbotStore((state) => state.chatMessages);
     const reversedChatData = [...chatbotMessage].reverse();
+
     return (
         <div className="flex flex-col-reverse gap-4 p-2 h-2/3-screen overflow-y-auto">
             {reversedChatData.map((data, index) => {

@@ -19,8 +19,7 @@ export default function ChatWrapper() {
     useEffect(() => {
         initiateChat(user.token).then((res) => {
             setChatId(res.id);
-            console.log(res.messages[0]);
-            addChatMessage({ role: "bot", content: res.messages[0].content });
+            setChatMessages(res.messages);
         });
 
         return () => {
