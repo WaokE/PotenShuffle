@@ -17,7 +17,9 @@ export default function TopNavigationBar() {
         <div className="flex justify-between items-center w-full h-7.5%-screen p-4 border-solid border-b-2 border-black-400">
             <div className="flex justify-center items-center gap-8 ml-[17%]">
                 <Link href="/main">
-                    <span className="font-bold text-xl">포텐셔플</span>
+                    <span className="font-[700] text-3xl bg-clip-text text-transparent bg-gradient-to-b from-[#A26CFF] to-[#5800F0] loginBanner select-none">
+                        포텐셔플
+                    </span>
                 </Link>
             </div>
             {currentUserStore && validLogin(currentUserStore?.user.tokenExpire!) ? (
