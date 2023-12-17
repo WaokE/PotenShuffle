@@ -31,7 +31,7 @@ const ReceivedOffers = () => {
     const getOccupationIcon = (occupation: string) => {
         switch (occupation) {
             case "DESIGNER":
-                return <Image src="/_Type=5.svg" alt="icon" width="30" height="30" />;
+                return <Image src="/_Type=3.svg" alt="icon" width="30" height="30" />;
             case "WEB_ENGINEER":
                 return <Image src="/_Type=2.svg" alt="icon" width="30" height="30" />;
             case "SERVER_ENGINEER":
