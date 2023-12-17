@@ -1,16 +1,38 @@
+// Framwork APIs
 import React, { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-import { sendMessage } from "@/app/api/chatbot";
+// Components
+import SendingOffer from "../SendingOffer";
 
+// State stores
 import { useChatbotStore } from "@/store/chatbotStore";
 import { useCurrentUserStore } from "@/store/currentUserStore";
 
-export default function ChatFooter() {
-    const { chatId, userInput, setUserInput, setChatMessages, addChatMessage } = useChatbotStore();
-    const token = useCurrentUserStore((state) => state.user.token);
+// APIs
+import { endConversation, sendMessage } from "@/app/api/chatbot";
 
+export default function ChatFooter() {
+    const [loading, setLoading] = useState(false);
     const [isSending, setIsSending] = useState(false);
+    const { chatId, userInput, setUserInput, setChatMessages, addChatMessage, setChatResult } =
+        useChatbotStore();
+    const token = useCurrentUserStore((state) => state.user.token);
+    const router = useRouter();
+
+    const handleCompleteIntroduction = async () => {
+        setLoading(true);
+        try {
+            const res = await endConversation(chatId, token);
+            setChatResult(res);
+            router.push("/main/introduce");
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === "Enter" && !event.shiftKey) {
@@ -22,7 +44,11 @@ export default function ChatFooter() {
 
             sendMessage(chatId, userInput, token)
                 .then((res) => {
-                    setChatMessages(res.messages);
+                    if (res.result !== null) {
+                        handleCompleteIntroduction();
+                    } else {
+                        setChatMessages(res.messages);
+                    }
                 })
                 .finally(() => {
                     setIsSending(false);
@@ -57,7 +83,11 @@ export default function ChatFooter() {
 
                     sendMessage(chatId, userInput, token)
                         .then((res) => {
-                            setChatMessages(res.messages);
+                            if (res.result !== null) {
+                                handleCompleteIntroduction();
+                            } else {
+                                setChatMessages(res.messages);
+                            }
                         })
                         .finally(() => {
                             setIsSending(false);
@@ -67,6 +97,7 @@ export default function ChatFooter() {
             >
                 {sendIcon}
             </button>
+            {loading && <SendingOffer />}
         </div>
     );
 }
