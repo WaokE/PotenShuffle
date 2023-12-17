@@ -23,13 +23,17 @@ const ReceivedOffers = () => {
     const getOccupationIcon = (occupation: string) => {
         switch (occupation) {
             case "DESIGNER":
-                return <Image src="/_Type=5.svg" alt="icon" width="30" height="30" />;
+                return <Image src="/_Type=3.png" alt="icon" width="30" height="30" />;
             case "WEB_ENGINEER":
-                return <Image src="/_Type=2.svg" alt="icon" width="30" height="30" />;
+                return <Image src="/_Type=2.png" alt="icon" width="30" height="30" />;
             case "SERVER_ENGINEER":
-                return <Image src="/_Type=4.svg" alt="icon" width="30" height="30" />;
+                return <Image src="/_Type=4.png" alt="icon" width="30" height="30" />;
             case "PRODUCT_MANAGER":
-                return <Image src="/_Type=1.svg" alt="icon" width="30" height="30" />;
+                return <Image src="/_Type=1.png" alt="icon" width="30" height="30" />;
+            case "IOS_ENGINEER":
+                return <Image src="/_Type=5.png" alt="icon" width="30" height="30" />;
+            case "AOS_ENGINEER":
+                return <Image src="/_Type=5.png" alt="icon" width="30" height="30" />;
             default:
                 return null;
         }
