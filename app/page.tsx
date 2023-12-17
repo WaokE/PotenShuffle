@@ -1,7 +1,14 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
-    return (
-        <div>
-            <h1>포텐데이 CRTL 팀 화이팅! 😀</h1>
-        </div>
-    );
+    const router = useRouter();
+
+    useEffect(() => {
+        router.push("/main");
+    }, []);
+
+    return <div></div>;
 }
