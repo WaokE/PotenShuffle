@@ -7,6 +7,7 @@ import CardWrapper from "./Cards/CardWrapper";
 import CurrentUserDashboardWrapper from "./Dashboard/CurrentUserDashboardWrapper";
 import MidNavigationBar from "./MidNavigationBar";
 import Teams from "./Teams/Teams";
+import MainFooter from "./MainFooter";
 
 // State stores
 import { useFilterStore } from "@/store/filterStore";
