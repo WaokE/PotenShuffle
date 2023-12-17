@@ -42,18 +42,20 @@ const ReceivedOffers = () => {
                     <p className="select-none text-gray-400">받은 제안이 없습니다.</p>
                 </div>
             ) : (
-                <div className="flex flex-col gap-1 h-1/2-screen w-full">
+                <div className="flex flex-col gap-4 h-1/2-screen w-full">
                     {receivedOffers.map((offer) => (
                         <div
                             key={offer.id}
-                            className={`flex border h-1/6 bg-white rounded-lg shadow select-none ${
+                            className={`flex items-center border px-4 gap-4 h-1/6 bg-white rounded-[15px] shadow select-none ${
                                 offer.status === "DECLINED" ? "opacity-50" : ""
                             }`}
                         >
                             {getOccupationIcon(offer.sentUser.card.occupation)}
                             <div className="flex flex-col gap-1">
-                                <p>{offer.sentUser.name}님에게 제안을 받았습니다.</p>
-                                <p>{offer.receivedAt}</p>
+                                <p className="font-[700]">
+                                    {offer.sentUser.name}님에게 제안을 받았습니다.
+                                </p>
+                                <p className="text-[#9C9C9C]">{offer.receivedAt}</p>
                             </div>
                         </div>
                     ))}
