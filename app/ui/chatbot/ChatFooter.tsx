@@ -21,18 +21,18 @@ export default function ChatFooter() {
     const token = useCurrentUserStore((state) => state.user.token);
     const router = useRouter();
 
-    const handleCompleteIntroduction = async () => {
-        setLoading(true);
-        try {
-            const res = await endConversation(chatId, token);
-            setChatResult(res);
-            router.push("/main/introduce");
-        } catch (e) {
-            console.error(e);
-        } finally {
-            setLoading(false);
-        }
-    };
+    // const handleCompleteIntroduction = async () => {
+    //     setLoading(true);
+    //     try {
+    //         const res = await endConversation(chatId, token);
+    //         setChatResult(res);
+    //         router.push("/main/introduce");
+    //     } catch (e) {
+    //         console.error(e);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === "Enter" && !event.shiftKey) {
@@ -45,7 +45,8 @@ export default function ChatFooter() {
             sendMessage(chatId, userInput, token)
                 .then((res) => {
                     if (res.result !== null) {
-                        handleCompleteIntroduction();
+                        setChatResult(res.result);
+                        router.push("/main/introduce");
                     } else {
                         setChatMessages(res.messages);
                     }
@@ -84,7 +85,8 @@ export default function ChatFooter() {
                     sendMessage(chatId, userInput, token)
                         .then((res) => {
                             if (res.result !== null) {
-                                handleCompleteIntroduction();
+                                setChatResult(res.result);
+                                router.push("/main/introduce");
                             } else {
                                 setChatMessages(res.messages);
                             }
