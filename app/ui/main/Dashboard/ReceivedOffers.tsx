@@ -1,15 +1,23 @@
+// Framework APIs
 import Image from "next/image";
-
 import { useEffect } from "react";
 
+// Components
+import OfferModal from "./OfferModal";
+
+// State stores
 import { useCurrentUserStore } from "@/store/currentUserStore";
 import { useDashboardStore } from "@/store/dashboardStore";
+import { useOfferModalStore } from "@/store/offerModalStore";
 
+// APIs
 import { fetchReceivedOffers } from "@/app/api/teamOffer";
+import { fetchSpecificUserInfo } from "@/app/api/fetchData";
 
 const ReceivedOffers = () => {
     const token = useCurrentUserStore((state) => state.user.token);
     const { receivedOffers, setReceivedOffers } = useDashboardStore();
+    const { isModalOpen, setIsModalOpen, setSelectedOfferCard } = useOfferModalStore();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,7 +26,7 @@ const ReceivedOffers = () => {
         };
 
         fetchData();
-    }, [receivedOffers]);
+    }, []);
 
     const getOccupationIcon = (occupation: string) => {
         switch (occupation) {
@@ -49,6 +57,13 @@ const ReceivedOffers = () => {
                             className={`flex items-center border px-4 gap-4 h-1/6 bg-white rounded-[15px] shadow select-none ${
                                 offer.status === "DECLINED" ? "opacity-50" : ""
                             }`}
+                            onClick={() => {
+                                fetchSpecificUserInfo(offer.sentUser.id).then((res) => {
+                                    console.log(res.data);
+                                    setSelectedOfferCard(res.data);
+                                });
+                                setIsModalOpen(true);
+                            }}
                         >
                             {getOccupationIcon(offer.sentUser.card.occupation)}
                             <div className="flex flex-col gap-1">
@@ -61,6 +76,7 @@ const ReceivedOffers = () => {
                     ))}
                 </div>
             )}
+            {isModalOpen && <OfferModal />}
         </>
     );
 };

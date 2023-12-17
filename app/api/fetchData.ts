@@ -12,8 +12,8 @@ export const fetchCurrentUserInfo = (token: string) => {
     });
 };
 
-export const fetchSpecificUserInfo = (userId: string) => {
-    return axios.get(serverUrl + "/users/" + userId + "/information");
+export const fetchSpecificUserInfo = (userId: number) => {
+    return axios.get(`${serverUrl}/users/${userId}/information`);
 };
 
 export const fetchAllUserInfo = () => {
