@@ -11,6 +11,8 @@ import { userInfo } from "@/type/user";
 
 import { updateMyCard } from "@/app/api/userService";
 
+import { showErrorToast } from "@/app/lib/toast";
+
 const ButtonContainer = () => {
     const { name, occupation, keywords, briefIntroduction, introduction } = useIntroduceFormStore();
     const [userData, setUserData] = useState<userInfo>();
@@ -39,6 +41,16 @@ const ButtonContainer = () => {
                 <button
                     className="bg-[#7A34F2] rounded-[15px] text-white font-[700] px-8 py-4 w-auto"
                     onClick={() => {
+                        if (
+                            !name ||
+                            !briefIntroduction ||
+                            !introduction ||
+                            !keywords.length ||
+                            occupation === "NONE"
+                        ) {
+                            showErrorToast("모든 항목을 입력해주세요.");
+                            return;
+                        }
                         updateMyCard(
                             {
                                 user: {
