@@ -41,42 +41,43 @@ const ButtonContainer = () => {
                     다시 작성하기
                 </button>
             </Link>
-            <Link href="/main">
-                <button
-                    className="bg-[#7A34F2] rounded-[15px] text-white font-[700] px-8 py-4 w-auto"
-                    onClick={() => {
-                        if (
-                            !name ||
-                            !briefIntroduction ||
-                            !introduction ||
-                            !keywords.length ||
-                            occupation === "NONE"
-                        ) {
-                            showErrorToast("모든 항목을 입력해주세요.");
-                            return;
-                        }
-                        updateMyCard(
-                            {
-                                user: {
-                                    id: userData!.user.id,
-                                    name: name,
-                                    teamBuildingStatus: userData!.user.teamBuildingStatus,
-                                },
-                                briefIntroduction: briefIntroduction,
-                                introduction: introduction,
-                                employmentStatus: userData!.employmentStatus,
-                                occupation: occupation,
-                                keywords: keywords,
-                                createdAt: userData!.createdAt,
-                                updatedAt: userData!.updatedAt,
+
+            <button
+                className="bg-[#7A34F2] rounded-[15px] text-white font-[700] px-8 py-4 w-auto"
+                onClick={() => {
+                    console.log(occupation);
+                    if (
+                        !name ||
+                        !briefIntroduction ||
+                        !introduction ||
+                        !keywords.length ||
+                        occupation === "NONE"
+                    ) {
+                        showErrorToast("모든 항목을 입력해주세요.");
+                        return;
+                    }
+                    updateMyCard(
+                        {
+                            user: {
+                                id: userData!.user.id,
+                                name: name,
+                                teamBuildingStatus: userData!.user.teamBuildingStatus,
                             },
-                            user.token
-                        );
-                    }}
-                >
-                    저장하기
-                </button>
-            </Link>
+                            briefIntroduction: briefIntroduction,
+                            introduction: introduction,
+                            employmentStatus: userData!.employmentStatus,
+                            occupation: occupation,
+                            keywords: keywords,
+                            createdAt: userData!.createdAt,
+                            updatedAt: userData!.updatedAt,
+                        },
+                        user.token
+                    );
+                    router.push("/main");
+                }}
+            >
+                저장하기
+            </button>
         </div>
     );
 };
