@@ -18,7 +18,7 @@ const ReceivedOffers = () => {
         };
 
         fetchData();
-    }, []);
+    }, [sentOffers]);
 
     const getOccupationIcon = (occupation: string) => {
         switch (occupation) {
