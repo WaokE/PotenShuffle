@@ -18,13 +18,13 @@ export default function ChatFooter() {
             setIsSending(true);
             addChatMessage({ role: "user", content: userInput });
             addChatMessage({ role: "bot", content: "답변 생성 중..." });
+            setUserInput("");
 
             sendMessage(chatId, userInput, token)
                 .then((res) => {
                     setChatMessages(res.messages);
                 })
                 .finally(() => {
-                    setUserInput("");
                     setIsSending(false);
                 });
         }
@@ -53,13 +53,13 @@ export default function ChatFooter() {
                     setIsSending(true);
                     addChatMessage({ role: "user", content: userInput });
                     addChatMessage({ role: "bot", content: "답변 생성 중..." });
+                    setUserInput("");
 
                     sendMessage(chatId, userInput, token)
                         .then((res) => {
                             setChatMessages(res.messages);
                         })
                         .finally(() => {
-                            setUserInput("");
                             setIsSending(false);
                         });
                 }}
