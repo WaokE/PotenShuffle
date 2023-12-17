@@ -12,6 +12,9 @@ import { useChatbotStore } from "@/store/chatbotStore";
 // Types
 import { OCCUPATION_VALUES } from "@/type/user";
 
+// Functions
+import { convertOccupation } from "@/app/lib/convertName";
+
 const IntroduceForm = () => {
     const {
         setName,
@@ -39,7 +42,7 @@ const IntroduceForm = () => {
         <div className="flex flex-col gap-8 pl-8 pr-8">
             <div className="flex gap-4 justify-between">
                 <div className="flex items-center gap-4">
-                    <label htmlFor="name" className="font-[700] w-20">
+                    <label htmlFor="name" className="font-[700] w-24">
                         이름
                     </label>
                     <input
@@ -64,7 +67,7 @@ const IntroduceForm = () => {
                     >
                         {OCCUPATION_VALUES.map((occupation) => (
                             <option key={occupation} value={occupation}>
-                                {occupation}
+                                {convertOccupation(occupation)}
                             </option>
                         ))}
                     </select>
@@ -84,8 +87,8 @@ const IntroduceForm = () => {
                 ))}
             </div>
             <div className="flex gap-4">
-                <label htmlFor="briefIntroduction" className="font-[700] w-20">
-                    한 줄 소개
+                <label htmlFor="briefIntroduction" className="font-[700] w-24">
+                    나를 한마디로
                 </label>
                 <textarea
                     id="briefIntroduction"
@@ -95,7 +98,7 @@ const IntroduceForm = () => {
                 />
             </div>
             <div className="flex gap-4">
-                <label htmlFor="introduction" className="font-[700] w-20">
+                <label htmlFor="introduction" className="font-[700] w-24">
                     자기 소개
                 </label>
                 <textarea
