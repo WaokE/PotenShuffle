@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { use, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { useIntroduceFormStore } from "@/store/introduceFormStore";
 import { fetchCurrentUserInfo } from "@/app/api/fetchData";
@@ -17,6 +18,7 @@ const ButtonContainer = () => {
     const { name, occupation, keywords, briefIntroduction, introduction } = useIntroduceFormStore();
     const [userData, setUserData] = useState<userInfo>();
     const { user } = useCurrentUserStore();
+    const router = useRouter();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -32,7 +34,9 @@ const ButtonContainer = () => {
             <Link href="/main/chatbot">
                 <button
                     className="border bg-[#FFFFFF] rounded-[15px] text-[#46148D] font-[700] px-8 py-4 w-auto"
-                    onClick={() => {}}
+                    onClick={() => {
+                        router.push("/main/chatbot");
+                    }}
                 >
                     다시 작성하기
                 </button>
