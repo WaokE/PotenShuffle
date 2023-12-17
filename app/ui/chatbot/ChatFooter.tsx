@@ -37,7 +37,7 @@ export default function ChatFooter() {
     return (
         <div className="flex justify-between border rounded-lg">
             <textarea
-                className="p-2 resize-none focus:outline-none rounded-lg"
+                className="p-2 resize-none focus:outline-none rounded-lg w-full"
                 placeholder="답변을 입력해주세요"
                 value={userInput}
                 onChange={(event) => {
