@@ -15,6 +15,7 @@ import { useCardModalStore } from "@/store/cardModalStore";
 
 // APIs
 import { fetchCurrentUserInfo } from "@/app/api/fetchData";
+import { sendOffer } from "@/app/api/teamOffer";
 
 // Functions
 import { showSuccessToast, showErrorToast } from "@/app/lib/toast";
@@ -81,6 +82,12 @@ const ReconfirmModal = () => {
                                         "팀빌딩 제안을 보내려면 로그인 후 자기소개를 작성해주세요."
                                     );
                                 } else {
+                                    console.log(
+                                        sendOffer(
+                                            currentUserStore.user.token,
+                                            selectedCardData.user.id
+                                        )
+                                    );
                                     showSuccessToast(
                                         `${selectedCardData.user.name}님에게 제안을 보냈습니다.`
                                     );

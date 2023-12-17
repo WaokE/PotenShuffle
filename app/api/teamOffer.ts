@@ -26,6 +26,20 @@ export const fetchSentOffers = async (token: string) => {
     });
 };
 
+export const sendOffer = async (token: string, offerReceiveUserId: number) => {
+    return axios.post(
+        serverUrl + "/users/me/team-offers",
+        {
+            offerReceiveUserId,
+        },
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+};
+
 type responseType = "ACCEPT" | "DECLINE";
 export const respondToOffer = async (
     token: string,
