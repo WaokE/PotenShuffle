@@ -17,7 +17,8 @@ import { fetchSpecificUserInfo } from "@/app/api/fetchData";
 const ReceivedOffers = () => {
     const token = useCurrentUserStore((state) => state.user.token);
     const { receivedOffers, setReceivedOffers } = useDashboardStore();
-    const { isModalOpen, setIsModalOpen, setSelectedOfferCard } = useOfferModalStore();
+    const { isModalOpen, setIsModalOpen, setSelectedOfferCard, setSelectedOfferId } =
+        useOfferModalStore();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -62,6 +63,7 @@ const ReceivedOffers = () => {
                                 offer.status === "DECLINED" ? "opacity-50" : ""
                             }`}
                             onClick={() => {
+                                setSelectedOfferId(offer.id);
                                 fetchSpecificUserInfo(offer.sentUser.id).then((res) => {
                                     console.log(res.data);
                                     setSelectedOfferCard(res.data);

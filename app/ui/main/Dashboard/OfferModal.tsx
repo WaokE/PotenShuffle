@@ -4,9 +4,13 @@ import TextCard from "../Cards/TextCard";
 import Chip from "../Chip";
 
 import { useOfferModalStore } from "@/store/offerModalStore";
+import { useCurrentUserStore } from "@/store/currentUserStore";
+
+import { respondToOffer } from "@/app/api/teamOffer";
 
 const OfferModal = () => {
-    const { setIsModalOpen, selectedOfferCard } = useOfferModalStore();
+    const { setIsModalOpen, selectedOfferCard, selectedOfferId } = useOfferModalStore();
+    const { user } = useCurrentUserStore();
 
     return (
         <div
@@ -43,6 +47,7 @@ const OfferModal = () => {
                         textColor="#7A34F2"
                         borderColor="#E0E0E0"
                         onClick={() => {
+                            respondToOffer(user.token, selectedOfferId, "DECLINE");
                             setIsModalOpen(false);
                         }}
                     />
@@ -53,6 +58,7 @@ const OfferModal = () => {
                         textColor="#FFFFFF"
                         borderColor="#7A34F2"
                         onClick={() => {
+                            respondToOffer(user.token, selectedOfferId, "ACCEPT");
                             setIsModalOpen(false);
                         }}
                     />
