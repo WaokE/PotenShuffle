@@ -14,7 +14,6 @@ const ReceivedOffers = () => {
     useEffect(() => {
         const fetchData = async () => {
             const receivedOffers = await fetchReceivedOffers(token);
-            console.log(receivedOffers.data.items);
             setReceivedOffers(receivedOffers.data.items);
         };
 
@@ -53,7 +52,7 @@ const ReceivedOffers = () => {
                         >
                             {getOccupationIcon(offer.sentUser.card.occupation)}
                             <div className="flex flex-col gap-1">
-                                <p>{offer.sentUser.name}님에게 제안을 보냈습니다.</p>
+                                <p>{offer.sentUser.name}님에게 제안을 받았습니다.</p>
                                 <p>{offer.receivedAt}</p>
                             </div>
                         </div>
