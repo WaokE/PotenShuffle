@@ -4,9 +4,11 @@ import { useEffect } from "react";
 
 // Components
 import Chip from "../Chip";
+import AddKeywordModal from "./AddKeywordModal";
 
 // State stores
 import { useIntroduceFormStore } from "@/store/introduceFormStore";
+import { useAddKeywordStore } from "@/store/addKeywordstore";
 import { useChatbotStore } from "@/store/chatbotStore";
 
 // Types
@@ -28,6 +30,7 @@ const IntroduceForm = () => {
         briefIntroduction,
         keywords,
     } = useIntroduceFormStore();
+    const { toggleModal, isModalOpen } = useAddKeywordStore();
     const { chatResult } = useChatbotStore();
 
     useEffect(() => {
@@ -85,6 +88,14 @@ const IntroduceForm = () => {
                         onClick={() => toggleKeyword(keyword)}
                     />
                 ))}
+                <Chip
+                    key="addkeyword"
+                    label="+"
+                    bgColor="#FFFFFF"
+                    textColor="#121213"
+                    borderColor="#E0E0E0"
+                    onClick={toggleModal}
+                />
             </div>
             <div className="flex gap-4">
                 <label htmlFor="briefIntroduction" className="font-[700] w-24">
@@ -108,6 +119,7 @@ const IntroduceForm = () => {
                     onChange={(e) => setIntroduction(e.target.value)}
                 />
             </div>
+            {isModalOpen && <AddKeywordModal />}
         </div>
     );
 };

@@ -14,6 +14,8 @@ type introduceFormStore = {
     setBriefIntroduction: (briefIntroduction: string) => void;
     introduction: string;
     setIntroduction: (introduction: string) => void;
+    isAddModalOpen: boolean;
+    setIsAddModalOpen: (isAddModalOpen: boolean) => void;
 };
 
 export const useIntroduceFormStore = create<introduceFormStore>((set) => ({
@@ -48,5 +50,9 @@ export const useIntroduceFormStore = create<introduceFormStore>((set) => ({
     introduction: "",
     setIntroduction: (introduction) => {
         set({ introduction });
+    },
+    isAddModalOpen: false,
+    setIsAddModalOpen: (isAddModalOpen) => {
+        set({ isAddModalOpen });
     },
 }));
