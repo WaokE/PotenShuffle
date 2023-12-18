@@ -76,7 +76,7 @@ const IntroduceForm = () => {
                     </select>
                 </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
                 <p className="font-[700] w-20">나의 키워드</p>
                 {keywords.map((keyword) => (
                     <Chip
