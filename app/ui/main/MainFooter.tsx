@@ -7,7 +7,7 @@ const MainFooter = () => {
             <Link href="https://elemental-chimpanzee-ca2.notion.site/CTRL-dbd4fea787884b5381fee8d8e51c331d">
                 <p className="underline underline-offset-2">About us</p>
             </Link>
-            <p>개발 박종헌 | 디자인 서정민 | 개발 이형준, 신문기</p>
+            <p>기획 박종헌 | 디자인 서정민 | 개발 이형준, 신문기</p>
         </div>
     );
 };
