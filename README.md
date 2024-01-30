@@ -1,3 +1,5 @@
+<div align='center'>
+  
 # ⌨️ 포텐데이 팀 빌딩을 위한 웹 서비스
 
 
@@ -9,6 +11,12 @@
 ### 프로젝트 바로가기
 
 [PotenShuffle](https://potenday-temp.vercel.app/main)
+
+or 
+
+```
+npm run dev
+```
 
 ---
 
@@ -102,3 +110,4 @@
 ![홈_자기소개 작성 O_로그인 O_빌딩 중인 그룹 보기](https://github.com/WaokE/PotenShuffle/assets/128684924/879dd44f-c236-411e-a01c-34781565b8df)
 
 ![홈_자기소개 작성 O_로그인 O_나의 자기 소개 (4)](https://github.com/WaokE/PotenShuffle/assets/128684924/d02ee21e-3fcb-4c91-975e-9fabc4363cd8)
+</div>
