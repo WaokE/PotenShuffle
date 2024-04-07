@@ -16,16 +16,16 @@ export default function ChatbotPage() {
 
     const router = useRouter();
 
-    useEffect(() => {
-        // expireDate가 undefined일 때는 라우팅 검사 스킵
-        if (expireDate === undefined) return;
-        if (!expireDate || !validLogin(expireDate)) {
-            router.push("/login");
-        }
-    }, [expireDate]);
+    // useEffect(() => {
+    //     // expireDate가 undefined일 때는 라우팅 검사 스킵
+    //     if (expireDate === undefined) return;
+    //     if (!expireDate || !validLogin(expireDate)) {
+    //         router.push("/login");
+    //     }
+    // }, [expireDate]);
 
     // 렌더링 중지 (undefined일 때 | 로그인 유효기간이 지났을 때)
-    if (!validLogin(expireDate!) || expireDate === undefined) return null;
+    // if (!validLogin(expireDate!) || expireDate === undefined) return null;
 
     return (
         <div className="flex justify-center">

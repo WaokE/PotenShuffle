@@ -19,6 +19,8 @@ import { userInfo } from "@/type/user";
 // APIs
 import { fetchAllUserInfo } from "@/app/api/fetchData";
 
+import { dummyUsers } from "@/type/user";
+
 export default function CardWrapper() {
     const { isModalOpen } = useCardModalStore();
     const { selectedFilter } = useFilterStore();
@@ -26,12 +28,15 @@ export default function CardWrapper() {
     const [allUserInfo, setAllUserInfo] = useState<userInfo[]>([]);
 
     useEffect(() => {
-        async function fetchData() {
-            const data = await fetchAllUserInfo();
-            setAllUserInfo(data.data.items);
-        }
+        // 기존 API 호출 방식
+        // async function fetchData() {
+        //     const data = await fetchAllUserInfo();
+        //     setAllUserInfo(data.data.items);
+        // }
+        // fetchData();
 
-        fetchData();
+        // 더미 데이터 호출
+        setAllUserInfo(dummyUsers);
     }, []);
 
     return (
