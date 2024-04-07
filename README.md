@@ -11,12 +11,16 @@
 ### 프로젝트 바로가기
 
 [PotenShuffle](https://potenday-temp.vercel.app/main)
+(현재 네이버 클로바 크레딧 만료로 인해 서비스 종료 상태)
 
 or 
 
 ```
+npm install
 npm run dev
 ```
+
+명령어를 통해 로컬에서 프로젝트를 확인하실 수 있습니다.
 
 ---
 
